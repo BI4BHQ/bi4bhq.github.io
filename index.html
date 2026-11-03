@@ -132,49 +132,110 @@ SHANGHAI · CHINA · 73 &amp; GOOD DX<br><br>© 2026 BI4BHQ. ALL RIGHTS RESERVED
 <img id="photoLightboxImage" src="" alt=""><div class="photo-lightbox-caption" id="photoLightboxCaption"></div>
 </div>
 <script>
-const PHOTO_REPOSITORY="BI4BHQ/bi4bhq.github.io";
-const PHOTO_BRANCH="main";
-const PHOTO_CATEGORIES=[
-{folder:"01-radio",target:"photo-radio"},
-{folder:"02-journeys",target:"photo-journeys"},
-{folder:"03-city-life",target:"photo-city"},
-{folder:"04-moments",target:"photo-moments"}
+const PHOTO_CATEGORIES = [
+  {
+    folder: "01-radio",
+    target: "photo-radio",
+    photos: ["IMG_3_415E389F-7FE5-4603-B012-EE6E5CA08656.jpeg"]
+  },
+  {
+    folder: "02-journeys",
+    target: "photo-journeys",
+    photos: ["IMG_8422.jpeg"]
+  },
+  {
+    folder: "03-city-life",
+    target: "photo-city",
+    photos: ["IMG_20260802_182029.jpeg"]
+  },
+  {
+    folder: "04-moments",
+    target: "photo-moments",
+    photos: ["mmexport1594604199095.jpeg"]
+  }
 ];
-const PHOTO_EXTENSIONS=/\.(jpg|jpeg|png|webp|gif|avif)$/i;
-function photoTitle(filename){return filename.replace(/\.[^/.]+$/,"").replace(/[-_]/g," ").replace(/\b\w/g,letter=>letter.toUpperCase())}
-async function loadPhotoCategory(category){
-const container=document.getElementById(category.target);if(!container)return;
-const apiURL=`https://api.github.com/repos/${PHOTO_REPOSITORY}/contents/assets/photos/${category.folder}?ref=${PHOTO_BRANCH}`;
-try{
-const response=await fetch(apiURL);if(!response.ok)throw new Error("GitHub API request failed");
-const files=await response.json();
-const photos=files.filter(file=>file.type==="file"&&PHOTO_EXTENSIONS.test(file.name));
-container.innerHTML="";
-if(photos.length===0){container.innerHTML='<div class="photo-empty">PHOTOS COMING SOON</div>';return}
-photos.sort((a,b)=>a.name.localeCompare(b.name));
-photos.forEach(file=>{
-const item=document.createElement("div");item.className="photo-item";
-const img=document.createElement("img");img.src=file.download_url;img.alt=photoTitle(file.name);img.loading="lazy";
-const caption=document.createElement("div");caption.className="photo-caption";caption.textContent=photoTitle(file.name);
-item.appendChild(img);item.appendChild(caption);
-item.addEventListener("click",()=>openPhoto(file.download_url,photoTitle(file.name)));
-container.appendChild(item);
+
+const PHOTO_BASE =
+  "https://raw.githubusercontent.com/BI4BHQ/bi4bhq.github.io/main/assets/photos/";
+
+function photoTitle(filename) {
+  return filename
+    .replace(/\.[^/.]+$/, "")
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function loadPhotoCategory(category) {
+  const container = document.getElementById(category.target);
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  category.photos.forEach(filename => {
+    const src = PHOTO_BASE + category.folder + "/" +
+      encodeURIComponent(filename);
+
+    const item = document.createElement("div");
+    item.className = "photo-item";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = photoTitle(filename);
+    img.loading = "lazy";
+
+    img.onerror = () => {
+      item.remove();
+      if (!container.children.length) {
+        container.innerHTML =
+          '<div class="photo-empty">PHOTO UNAVAILABLE</div>';
+      }
+    };
+
+    const caption = document.createElement("div");
+    caption.className = "photo-caption";
+    caption.textContent = photoTitle(filename);
+
+    item.appendChild(img);
+    item.appendChild(caption);
+
+    item.addEventListener("click", () => {
+      openPhoto(src, photoTitle(filename));
+    });
+
+    container.appendChild(item);
+  });
+}
+
+function openPhoto(src, title) {
+  const lightbox = document.getElementById("photoLightbox");
+  const image = document.getElementById("photoLightboxImage");
+
+  image.src = src;
+  image.alt = title;
+  document.getElementById("photoLightboxCaption").textContent = title;
+
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closePhoto() {
+  document.getElementById("photoLightbox").classList.remove("active");
+  document.getElementById("photoLightboxImage").src = "";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("photoLightboxClose")
+  .addEventListener("click", closePhoto);
+
+document.getElementById("photoLightbox")
+  .addEventListener("click", event => {
+    if (event.target.id === "photoLightbox") closePhoto();
+  });
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closePhoto();
 });
-}catch(error){console.error("Photo loading error:",error);container.innerHTML='<div class="photo-empty">PHOTOS COMING SOON</div>'}
-}
-function openPhoto(src,title){
-const lightbox=document.getElementById("photoLightbox");
-const image=document.getElementById("photoLightboxImage");
-image.src=src;image.alt=title;document.getElementById("photoLightboxCaption").textContent=title;
-lightbox.classList.add("active");document.body.style.overflow="hidden";
-}
-function closePhoto(){
-document.getElementById("photoLightbox").classList.remove("active");
-document.getElementById("photoLightboxImage").src="";document.body.style.overflow="";
-}
-document.getElementById("photoLightboxClose").addEventListener("click",closePhoto);
-document.getElementById("photoLightbox").addEventListener("click",event=>{if(event.target.id==="photoLightbox")closePhoto()});
-document.addEventListener("keydown",event=>{if(event.key==="Escape")closePhoto()});
+
 PHOTO_CATEGORIES.forEach(loadPhotoCategory);
 </script>
 </body>
