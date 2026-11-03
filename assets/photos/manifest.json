@@ -1,0 +1,30 @@
+[
+  {
+    "folder": "01-radio",
+    "target": "photo-radio",
+    "photos": [
+      "IMG_3_415E389F-7FE5-4603-B012-EE6E5CA08656.jpeg"
+    ]
+  },
+  {
+    "folder": "02-journeys",
+    "target": "photo-journeys",
+    "photos": [
+      "IMG_8422.jpeg"
+    ]
+  },
+  {
+    "folder": "03-city-life",
+    "target": "photo-city",
+    "photos": [
+      "IMG_20260802_182029.jpeg"
+    ]
+  },
+  {
+    "folder": "04-moments",
+    "target": "photo-moments",
+    "photos": [
+      "mmexport1594604199095.jpeg"
+    ]
+  }
+]
