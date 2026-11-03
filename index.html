@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090c">
+<title>BI4BHQ | Personal Amateur Radio Station</title>
+<meta name="description" content="BI4BHQ - Personal Amateur Radio Station of China, Shanghai.">
+<style>
+:root{
+  --bg:#08090c;
+  --panel:#111318;
+  --red:#c92332;
+  --white:#f4f2ee;
+  --muted:#a5a5aa;
+  --line:rgba(255,255,255,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+  "Microsoft YaHei",Arial,sans-serif;
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,90%);margin:auto}
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,9,12,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  min-height:72px;display:flex;
+  align-items:center;justify-content:space-between;
+  gap:20px;
+}
+.logo{font-size:22px;font-weight:800;letter-spacing:2px}
+.logo span{color:var(--red)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{font-size:13px;color:#c7c7ca}
+nav a:hover{color:#fff}
+.hero{
+  min-height:600px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(5,6,9,.96),rgba(5,6,9,.66)),
+    url("assets/bi4bhq-banner.png") center/cover no-repeat,
+    radial-gradient(circle at 80% 35%,#48151c,#08090c 60%);
+  border-bottom:1px solid var(--line);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,#08090c,transparent 35%);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:1;padding:90px 0}
+.eyebrow{
+  color:#e34b55;font-size:12px;
+  letter-spacing:4px;text-transform:uppercase;
+}
+h1{
+  font-size:clamp(58px,11vw,112px);
+  line-height:1;margin:20px 0;
+  letter-spacing:3px;font-weight:850;
+}
+h1 span{color:var(--red)}
+.hero h2{
+  font-size:clamp(17px,3vw,25px);
+  font-weight:400;letter-spacing:3px;
+}
+.hero p{color:#c4c2c2;max-width:560px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-block;padding:12px 24px;
+  border:1px solid var(--red);
+  font-size:13px;letter-spacing:1px;
+  transition:.2s;
+}
+.btn.primary{background:var(--red)}
+.btn:hover{background:#fff;color:#111;border-color:#fff}
+.section{padding:90px 0;border-bottom:1px solid var(--line)}
+.section-title{
+  font-size:30px;letter-spacing:2px;
+  margin:0 0 10px;
+}
+.section-title span{color:var(--red)}
+.subtitle{
+  color:var(--muted);font-size:13px;
+  letter-spacing:2px;margin-bottom:35px;
+}
+.about-text{max-width:760px;color:#c6c6c9}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:26px;
+  min-height:155px;
+}
+.card .number{
+  color:var(--red);font-size:12px;
+  letter-spacing:2px;margin-bottom:12px;
+}
+.card h3{font-size:19px;margin:0 0 8px}
+.card p{font-size:14px;color:var(--muted);margin:0}
+.station-value{font-size:22px;font-weight:700}
+.station-label{
+  font-size:11px;color:var(--red);
+  letter-spacing:2px;margin-bottom:8px;
+}
+.qsl-card{
+  min-height:230px;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+  background:
+    linear-gradient(145deg,rgba(180,20,35,.2),transparent 60%),
+    #111318;
+}
+.qsl-card .big{
+  font-size:38px;font-weight:800;letter-spacing:2px;
+}
+.qsl-card p{color:var(--muted);font-size:13px}
+.qsl-link{
+  display:inline-block;color:#fff;
+  border-bottom:1px solid var(--red);
+  padding-bottom:4px;font-size:13px;
+}
+.contact{
+  text-align:center;
+  background:linear-gradient(180deg,#111318,#08090c);
+}
+.contact .call{
+  font-size:clamp(40px,9vw,76px);
+  font-weight:850;letter-spacing:4px;
+  color:var(--red);margin:20px 0;
+}
+footer{
+  padding:30px 0;text-align:center;
+  color:#777;font-size:11px;letter-spacing:1px;
+}
+footer strong{color:#ccc}
+@media(max-width:650px){
+  .nav{align-items:flex-start;padding:18px 0;flex-direction:column}
+  nav{gap:12px 18px}
+  .hero{min-height:540px}
+  .hero-content{padding:70px 0}
+  .section{padding:65px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">BI4<span>BHQ</span></a>
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#station">STATION</a>
+      <a href="#qsl">QSL GALLERY</a>
+      <a href="#logbook">LOGBOOK</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="eyebrow">PERSONAL AMATEUR RADIO STATION OF CHINA</div>
+    <h1>BI4<span>BHQ</span></h1>
+    <h2>BEYOND THE DISTANCE · CONNECT THE WORLD</h2>
+    <p>
+      From Shanghai, China.<br>
+      Through the airwaves, connecting people across distance.
+      Every signal carries a story.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#station">MY STATION</a>
+      <a class="btn" href="https://www.qrz.com/db/BI4BHQ"
+         target="_blank" rel="noopener">VISIT MY QRZ</a>
+    </div>
+    <p class="eyebrow" style="margin-top:45px">
+      JING'AN · SHANGHAI · CHINA
+    </p>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="eyebrow">01 / ABOUT ME</div>
+    <h2 class="section-title">ABOUT <span>BI4BHQ</span></h2>
+    <div class="subtitle">A RADIO AMATEUR FROM SHANGHAI, CHINA</div>
+    <p class="about-text">
+      Welcome to my personal amateur radio station.
+      I am BI4BHQ, based in Jing'an District, Shanghai, China.
+      <br><br>
+      Amateur radio is more than communication.
+      It is the fascination of sending electromagnetic waves
+      into the unknown, reaching someone far away without
+      relying on the internet or cellular networks.
+      <br><br>
+      Different places, different voices, one shared frequency.
+      See you on the air!
+    </p>
+  </div>
+</section>
+
+<section class="section" id="station">
+  <div class="container">
+    <div class="eyebrow">02 / RADIO EQUIPMENT</div>
+    <h2 class="section-title">MY <span>STATION</span></h2>
+    <div class="subtitle">THE EQUIPMENT BEHIND THE SIGNAL</div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="station-label">CALLSIGN</div>
+        <div class="station-value">BI4BHQ</div>
+        <p>China Amateur Radio Station</p>
+      </div>
+      <div class="card">
+        <div class="station-label">RADIO</div>
+        <div class="station-value">威诺 N7600</div>
+        <p>Radio Transceiver</p>
+      </div>
+      <div class="card">
+        <div class="station-label">ANTENNA</div>
+        <div class="station-value">770R</div>
+        <p>Station Antenna</p>
+      </div>
+      <div class="card">
+        <div class="station-label">QTH</div>
+        <div class="station-value">JING'AN</div>
+        <p>Shanghai, China</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="qsl">
+  <div class="container">
+    <div class="eyebrow">03 / CONFIRMING CONTACTS</div>
+    <h2 class="section-title">QSL <span>GALLERY</span></h2>
+    <div class="subtitle">EVERY QSO IS A MEMORY</div>
+
+    <div class="grid">
+      <div class="card qsl-card">
+        <div>
+          <div class="number">QSL CARD COLLECTION</div>
+          <div class="big">BI4BHQ</div>
+          <p>My QSL cards and radio communication memories.</p>
+        </div>
+        <a class="qsl-link"
+           href="https://www.qrz.com/db/BI4BHQ"
+           target="_blank" rel="noopener">
+          VIEW QSL ON QRZ ↗
+        </a>
+      </div>
+      <div class="card qsl-card">
+        <div>
+          <div class="number">RADIO AMATEUR</div>
+          <div class="big">73</div>
+          <p>Best regards and good DX to all radio amateurs.</p>
+        </div>
+        <a class="qsl-link"
+           href="https://www.qrz.com/db/BI4BHQ"
+           target="_blank" rel="noopener">
+          VISIT MY QRZ PAGE ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="logbook">
+  <div class="container">
+    <div class="eyebrow">04 / RADIO CONTACTS</div>
+    <h2 class="section-title">LOG<span>BOOK</span></h2>
+    <div class="subtitle">EVERY CONTACT CONNECTS THE WORLD</div>
+    <div class="card">
+      <h3>MY RADIO LOG</h3>
+      <p>
+        For QSO information, contact records and station details,
+        please visit my QRZ profile.
+      </p>
+      <br>
+      <a class="qsl-link"
+         href="https://www.qrz.com/db/BI4BHQ"
+         target="_blank" rel="noopener">
+        OPEN QRZ LOGBOOK / PROFILE ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">05 / SEE YOU ON THE AIR</div>
+    <h2 class="section-title">SAY <span>HELLO</span></h2>
+    <div class="call">BI4BHQ</div>
+    <p>Shanghai, China</p>
+    <p>73 & GOOD DX</p>
+    <div class="buttons" style="justify-content:center">
+      <a class="btn primary"
+         href="https://www.qrz.com/db/BI4BHQ"
+         target="_blank" rel="noopener">CONTACT VIA QRZ</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <strong>BI4BHQ</strong> · PERSONAL AMATEUR RADIO STATION OF CHINA
+    <br>
+    SHANGHAI · CHINA · 73 & GOOD DX
+    <br><br>
+    © 2026 BI4BHQ. ALL RIGHTS RESERVED.
+  </div>
+</footer>
+
+</body>
+</html>
