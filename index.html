@@ -7,345 +7,175 @@
 <title>BI4BHQ | Personal Amateur Radio Station</title>
 <meta name="description" content="BI4BHQ - Personal Amateur Radio Station of China, Shanghai.">
 <style>
-:root{
-  --bg:#08090c;
-  --panel:#111318;
-  --red:#c92332;
-  --white:#f4f2ee;
-  --muted:#a5a5aa;
-  --line:rgba(255,255,255,.13);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--white);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
-  "Microsoft YaHei",Arial,sans-serif;
-  line-height:1.7;
-}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,90%);margin:auto}
-header{
-  position:sticky;top:0;z-index:10;
-  background:rgba(8,9,12,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-.nav{
-  min-height:72px;display:flex;
-  align-items:center;justify-content:space-between;
-  gap:20px;
-}
-.logo{font-size:22px;font-weight:800;letter-spacing:2px}
-.logo span{color:var(--red)}
-nav{display:flex;gap:22px;flex-wrap:wrap}
-nav a{font-size:13px;color:#c7c7ca}
-nav a:hover{color:#fff}
-.hero{
-  min-height:600px;
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  background:
-  linear-gradient(90deg,rgba(5,6,9,.48),rgba(5,6,9,.22)),
-  url("assets/bi4bhq-banner.png") center/cover no-repeat,
-  radial-gradient(circle at 80% 35%,#48151c,#08090c 60%);
-  border-bottom:1px solid var(--line);
-}
-.hero:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#08090c,transparent 35%);
-  pointer-events:none;
-}
+:root{--bg:#08090c;--panel:#111318;--red:#c92332;--white:#f4f2ee;--muted:#a5a5aa;--line:rgba(255,255,255,.13)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}.container{width:min(1120px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(8,9,12,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:22px;font-weight:800;letter-spacing:2px}.logo span{color:var(--red)}
+nav{display:flex;gap:22px;flex-wrap:wrap}nav a{font-size:13px;color:#c7c7ca}nav a:hover{color:#fff}
+.hero{min-height:600px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(5,6,9,.48),rgba(5,6,9,.22)),url("assets/bi4bhq-banner.png") center/cover no-repeat,radial-gradient(circle at 80% 35%,#48151c,#08090c 60%);border-bottom:1px solid var(--line)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#08090c,transparent 35%);pointer-events:none}
 .hero-content{position:relative;z-index:1;padding:90px 0}
-.eyebrow{
-  color:#e34b55;font-size:12px;
-  letter-spacing:4px;text-transform:uppercase;
-}
-h1{
-  font-size:clamp(58px,11vw,112px);
-  line-height:1;margin:20px 0;
-  letter-spacing:3px;font-weight:850;
-}
-h1 span{color:var(--red)}
-.hero h2{
-  font-size:clamp(17px,3vw,25px);
-  font-weight:400;letter-spacing:3px;
-}
-.hero p{color:#c4c2c2;max-width:560px}
+.eyebrow{color:#e34b55;font-size:12px;letter-spacing:4px;text-transform:uppercase}
+h1{font-size:clamp(58px,11vw,112px);line-height:1;margin:20px 0;letter-spacing:3px;font-weight:850}h1 span{color:var(--red)}
+.hero h2{font-size:clamp(17px,3vw,25px);font-weight:400;letter-spacing:3px}.hero p{color:#c4c2c2;max-width:560px}
 .buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.btn{
-  display:inline-block;padding:12px 24px;
-  border:1px solid var(--red);
-  font-size:13px;letter-spacing:1px;
-  transition:.2s;
-}
-.btn.primary{background:var(--red)}
-.btn:hover{background:#fff;color:#111;border-color:#fff}
+.btn{display:inline-block;padding:12px 24px;border:1px solid var(--red);font-size:13px;letter-spacing:1px;transition:.2s}
+.btn.primary{background:var(--red)}.btn:hover{background:#fff;color:#111;border-color:#fff}
 .section{padding:90px 0;border-bottom:1px solid var(--line)}
-.section-title{
-  font-size:30px;letter-spacing:2px;
-  margin:0 0 10px;
-}
-.section-title span{color:var(--red)}
-.subtitle{
-  color:var(--muted);font-size:13px;
-  letter-spacing:2px;margin-bottom:35px;
-}
-.about-text{max-width:760px;color:#c6c6c9}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  padding:26px;
-  min-height:155px;
-}
-.card .number{
-  color:var(--red);font-size:12px;
-  letter-spacing:2px;margin-bottom:12px;
-}
-.card h3{font-size:19px;margin:0 0 8px}
-.card p{font-size:14px;color:var(--muted);margin:0}
-.station-value{font-size:22px;font-weight:700}
-.station-label{
-  font-size:11px;color:var(--red);
-  letter-spacing:2px;margin-bottom:8px;
-}
-.qsl-card{
-  min-height:230px;
-  display:flex;flex-direction:column;
-  justify-content:space-between;
-  background:
-    linear-gradient(145deg,rgba(180,20,35,.2),transparent 60%),
-    #111318;
-}
-.qsl-card .big{
-  font-size:38px;font-weight:800;letter-spacing:2px;
-}
-.qsl-card p{color:var(--muted);font-size:13px}
-.qsl-link{
-  display:inline-block;color:#fff;
-  border-bottom:1px solid var(--red);
-  padding-bottom:4px;font-size:13px;
-}
-.contact{
-  text-align:center;
-  background:linear-gradient(180deg,#111318,#08090c);
-}
-.contact .call{
-  font-size:clamp(40px,9vw,76px);
-  font-weight:850;letter-spacing:4px;
-  color:var(--red);margin:20px 0;
-}
-footer{
-  padding:30px 0;text-align:center;
-  color:#777;font-size:11px;letter-spacing:1px;
-}
-footer strong{color:#ccc}
+.section-title{font-size:30px;letter-spacing:2px;margin:0 0 10px}.section-title span{color:var(--red)}
+.subtitle{color:var(--muted);font-size:13px;letter-spacing:2px;margin-bottom:35px}.about-text{max-width:760px;color:#c6c6c9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);padding:26px;min-height:155px}
+.card .number{color:var(--red);font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.card h3{font-size:19px;margin:0 0 8px}.card p{font-size:14px;color:var(--muted);margin:0}
+.station-value{font-size:22px;font-weight:700}.station-label{font-size:11px;color:var(--red);letter-spacing:2px;margin-bottom:8px}
+.qsl-card{min-height:230px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,rgba(180,20,35,.2),transparent 60%),#111318}
+.qsl-card .big{font-size:38px;font-weight:800;letter-spacing:2px}.qsl-card p{color:var(--muted);font-size:13px}
+.qsl-link{display:inline-block;color:#fff;border-bottom:1px solid var(--red);padding-bottom:4px;font-size:13px}
+.contact{text-align:center;background:linear-gradient(180deg,#111318,#08090c)}
+.contact .call{font-size:clamp(40px,9vw,76px);font-weight:850;letter-spacing:4px;color:var(--red);margin:20px 0}
+footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing:1px}footer strong{color:#ccc}
+
+/* PHOTO GALLERY */
+#photos{background:#08090c;color:#f2f2f2}
+.photo-intro{max-width:720px;margin:0 auto 55px;text-align:center}
+.photo-intro h2{font-size:30px;letter-spacing:3px}.photo-intro p{color:#999;line-height:1.9;letter-spacing:1px}
+.photo-category{margin:55px 0 22px;padding-left:15px;border-left:3px solid #a51f2b}
+.photo-category h3{margin:0;font-size:16px;letter-spacing:3px;font-weight:500}
+.photo-category p{color:#777;font-size:11px;letter-spacing:2px;margin:7px 0 0}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.photo-item{position:relative;overflow:hidden;background:#151519;aspect-ratio:4/3;cursor:zoom-in;border:1px solid rgba(255,255,255,.06)}
+.photo-item:first-child{grid-column:span 2;aspect-ratio:16/9}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,opacity .4s ease}
+.photo-item:hover img{transform:scale(1.05);opacity:.8}
+.photo-caption{position:absolute;left:0;right:0;bottom:0;padding:35px 15px 13px;color:#fff;font-size:12px;letter-spacing:1.5px;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.photo-empty,.photo-loading{color:#777;font-size:12px;letter-spacing:1px;padding:25px 0}
+.photo-lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;padding:30px;background:rgba(0,0,0,.96)}
+.photo-lightbox.active{display:flex}.photo-lightbox img{max-width:95%;max-height:82vh;object-fit:contain}
+.photo-lightbox-close{position:absolute;top:22px;right:28px;color:white;font-size:34px;cursor:pointer;background:none;border:none}
+.photo-lightbox-caption{color:#ccc;margin-top:18px;font-size:12px;letter-spacing:2px}
 @media(max-width:650px){
-  .nav{align-items:flex-start;padding:18px 0;flex-direction:column}
-  nav{
-    gap:12px 18px;
-    flex-wrap:nowrap;
-    max-width:100%;
-    overflow-x:auto;
-    padding-bottom:8px;
-  }
-  nav a{white-space:nowrap;flex:0 0 auto}
-  .hero{min-height:540px}
-  .hero-content{padding:70px 0}
-  .section{padding:65px 0}
+ .nav{align-items:flex-start;padding:18px 0;flex-direction:column}
+ nav{gap:12px 18px;flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:8px}
+ nav a{white-space:nowrap;flex:0 0 auto}.hero{min-height:540px}.hero-content{padding:70px 0}
+ .section{padding:65px 0}.photo-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+ .photo-item:first-child{grid-column:span 2}.photo-category{margin-top:40px}.photo-lightbox{padding:12px}
 }
-<br/>/* ==============================<br/>   BI4BHQ PHOTO GALLERY<br/>   ============================== */<br/><br/>#photos {<br/>  background: #08090c;<br/>  color: #f2f2f2;<br/>}<br/><br/>.photo-intro {<br/>  max-width: 720px;<br/>  margin: 0 auto 55px;<br/>  text-align: center;<br/>}<br/><br/>.photo-intro p {<br/>  color: #999;<br/>  line-height: 1.9;<br/>  letter-spacing: 1px;<br/>}<br/><br/>.photo-category {<br/>  margin: 55px 0 22px;<br/>  padding-left: 15px;<br/>  border-left: 3px solid #a51f2b;<br/>}<br/><br/>.photo-category h3 {<br/>  margin: 0;<br/>  font-size: 16px;<br/>  letter-spacing: 3px;<br/>  font-weight: 500;<br/>}<br/><br/>.photo-category p {<br/>  color: #777;<br/>  font-size: 11px;<br/>  letter-spacing: 2px;<br/>  margin: 7px 0 0;<br/>}<br/><br/>.photo-grid {<br/>  display: grid;<br/>  grid-template-columns: repeat(3, 1fr);<br/>  gap: 16px;<br/>}<br/><br/>.photo-item {<br/>  position: relative;<br/>  overflow: hidden;<br/>  background: #151519;<br/>  aspect-ratio: 4 / 3;<br/>  cursor: zoom-in;<br/>  border: 1px solid rgba(255,255,255,.06);<br/>}<br/><br/>.photo-item:first-child {<br/>  grid-column: span 2;<br/>  aspect-ratio: 16 / 9;<br/>}<br/><br/>.photo-item img {<br/>  width: 100%;<br/>  height: 100%;<br/>  object-fit: cover;<br/>  display: block;<br/>  transition: transform .6s ease, opacity .4s ease;<br/>}<br/><br/>.photo-item:hover img {<br/>  transform: scale(1.05);<br/>  opacity: .8;<br/>}<br/><br/>.photo-caption {<br/>  position: absolute;<br/>  left: 0;<br/>  right: 0;<br/>  bottom: 0;<br/>  padding: 35px 15px 13px;<br/>  color: #fff;<br/>  font-size: 12px;<br/>  letter-spacing: 1.5px;<br/>  background: linear-gradient(transparent, rgba(0,0,0,.8));<br/>}<br/><br/>.photo-empty,<br/>.photo-loading {<br/>  color: #777;<br/>  font-size: 12px;<br/>  letter-spacing: 1px;<br/>  padding: 25px 0;<br/>}<br/><br/>.photo-lightbox {<br/>  position: fixed;<br/>  inset: 0;<br/>  z-index: 9999;<br/>  display: none;<br/>  align-items: center;<br/>  justify-content: center;<br/>  flex-direction: column;<br/>  padding: 30px;<br/>  background: rgba(0,0,0,.96);<br/>}<br/><br/>.photo-lightbox.active {<br/>  display: flex;<br/>}<br/><br/>.photo-lightbox img {<br/>  max-width: 95%;<br/>  max-height: 82vh;<br/>  object-fit: contain;<br/>}<br/><br/>.photo-lightbox-close {<br/>  position: absolute;<br/>  top: 22px;<br/>  right: 28px;<br/>  color: white;<br/>  font-size: 34px;<br/>  cursor: pointer;<br/>  background: none;<br/>  border: none;<br/>}<br/><br/>.photo-lightbox-caption {<br/>  color: #ccc;<br/>  margin-top: 18px;<br/>  font-size: 12px;<br/>  letter-spacing: 2px;<br/>}<br/><br/>@media(max-width:650px) {<br/>  .photo-grid {<br/>    grid-template-columns: repeat(2, 1fr);<br/>    gap: 9px;<br/>  }<br/><br/>  .photo-item:first-child {<br/>    grid-column: span 2;<br/>  }<br/><br/>  .photo-category {<br/>    margin-top: 40px;<br/>  }<br/><br/>  .photo-lightbox {<br/>    padding: 12px;<br/>  }<br/>}<br/>
+</style>
 </head>
-
 <body>
-
-<header>
-  <div class="container nav">
-    <a class="logo" href="#home">BI4<span>BHQ</span></a>
-    <nav>
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#station">STATION</a>
-      <a href=" ">PHOTO GALLERY</a >
-      <a href="https://page.qeg.net/bi4bhq">QSL GALLERY</a>
-      <a href="#logbook">LOGBOOK</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-  </div>
-</header>
-
+<header><div class="container nav">
+<a class="logo" href="#home">BI4<span>BHQ</span></a>
+<nav>
+<a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#station">STATION</a>
+<a href="#photos">PHOTO GALLERY</a><a href="https://page.qeg.net/bi4bhq">QSL GALLERY</a>
+<a href="#logbook">LOGBOOK</a><a href="#contact">CONTACT</a>
+</nav></div></header>
 <main>
-
-<section class="hero" id="home">
-  <div class="container hero-content">
-    <div class="eyebrow">PERSONAL AMATEUR RADIO STATION OF CHINA</div>
-    <h1>BI4<span>BHQ</span></h1>
-    <h2>BEYOND THE DISTANCE · CONNECT THE WORLD</h2>
-    <p>
-      From Shanghai, China.<br>
-      Through the airwaves, connecting people across distance.
-      Every signal carries a story.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#station">MY STATION</a>
-      <a class="btn" href="https://www.qrz.com/db/BI4BHQ"
-         target="_blank" rel="noopener">VISIT MY QRZ</a>
-    </div>
-    <p class="eyebrow" style="margin-top:45px">
-      JING'AN · SHANGHAI · CHINA
-    </p>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="container">
-    <div class="eyebrow">01 / ABOUT ME</div>
-    <h2 class="section-title">ABOUT <span>BI4BHQ</span></h2>
-    <div class="subtitle">A RADIO AMATEUR FROM SHANGHAI, CHINA</div>
-    <p class="about-text">
-      Welcome to my personal amateur radio station.
-      I am BI4BHQ, based in Jing'an District, Shanghai, China.
-      <br><br>
-      Amateur radio is more than communication.
-      It is the fascination of sending electromagnetic waves
-      into the unknown, reaching someone far away without
-      relying on the internet or cellular networks.
-      <br><br>
-      Different places, different voices, one shared frequency.
-      See you on the air!
-    </p>
-  </div>
-</section>
-
-<section class="section" id="station">
-  <div class="container">
-    <div class="eyebrow">02 / RADIO EQUIPMENT</div>
-    <h2 class="section-title">MY <span>STATION</span></h2>
-    <div class="subtitle">THE EQUIPMENT BEHIND THE SIGNAL</div>
-
-    <div class="grid">
-      <div class="card">
-        <div class="station-label">CALLSIGN</div>
-        <div class="station-value">BI4BHQ</div>
-        <p>China Amateur Radio Station</p>
-      </div>
-      <div class="card">
-        <div class="station-label">RADIO</div>
-        <div class="station-value">威诺 N7600</div>
-        <p>Radio Transceiver</p>
-      </div>
-      <div class="card">
-        <div class="station-label">ANTENNA</div>
-        <div class="station-value">770R</div>
-        <p>Station Antenna</p>
-      </div>
-      <div class="card">
-        <div class="station-label">QTH</div>
-        <div class="station-value">JING'AN</div>
-        <p>Shanghai, China</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<br/><br/><!-- ==============================<br/><br/>     BI4BHQ PHOTO GALLERY<br/><br/>     ============================== --><br/><br/><section class="section" id="photos"><br/><br/>  <div class="container"><br/><br/>    <div class="photo-intro"><br/><br/>      <h2>PHOTO GALLERY</h2><br/><br/>      <p><br/><br/>        Moments, journeys and memories.<br/><br/>        A personal collection from BI4BHQ.<br/><br/>      </p ><br/><br/>    </div><br/><br/>    <!-- RADIO --><br/><br/>    <div class="photo-category"><br/><br/>      <h3>RADIO & THE AIRWAVES</h3><br/><br/>      <p>AMATEUR RADIO · COMMUNICATION · THE AIRWAVES</p ><br/><br/>    </div><br/><br/>    <div class="photo-grid" id="photo-radio"><br/><br/>      <div class="photo-loading">LOADING PHOTOS...</div><br/><br/>    </div><br/><br/>    <!-- JOURNEYS --><br/><br/>    <div class="photo-category"><br/><br/>      <h3>JOURNEYS</h3><br/><br/>      <p>TRAVEL · LANDSCAPES · DISTANT PLACES</p ><br/><br/>    </div><br/><br/>    <div class="photo-grid" id="photo-journeys"><br/><br/>      <div class="photo-loading">LOADING PHOTOS...</div><br/><br/>    </div><br/><br/>    <!-- CITY & LIFE --><br/><br/>    <div class="photo-category"><br/><br/>      <h3>CITY & LIFE</h3><br/><br/>      <p>URBAN LIGHTS · DAILY LIFE · CITY STORIES</p ><br/><br/>    </div><br/><br/>    <div class="photo-grid" id="photo-city"><br/><br/>      <div class="photo-loading">LOADING PHOTOS...</div><br/><br/>    </div><br/><br/>    <!-- MOMENTS --><br/><br/>    <div class="photo-category"><br/><br/>      <h3>MOMENTS</h3><br/><br/>      <p>FRAGMENTS OF TIME · PERSONAL MEMORIES</p ><br/><br/>    </div><br/><br/>    <div class="photo-grid" id="photo-moments"><br/><br/>      <div class="photo-loading">LOADING PHOTOS...</div><br/><br/>    </div><br/><br/>  </div><br/><br/></section><br/><br/><!-- PHOTO LIGHTBOX --><br/><br/><div class="photo-lightbox" id="photoLightbox"><br/><br/>  <button<br/><br/>    class="photo-lightbox-close"<br/><br/>    id="photoLightboxClose"<br/><br/>    aria-label="Close"<br/><br/>  >&times;</button><br/><br/>  < img id="photoLightboxImage" src="" alt=""><br/><br/>  <div<br/><br/>    class="photo-lightbox-caption"<br/><br/>    id="photoLightboxCaption"<br/><br/>  ></div><br/><br/></div>
-未选择文件
-
-<section class="section" id="qsl">
-  <div class="container">
-    <div class="eyebrow">03 / CONFIRMING CONTACTS</div>
-    <h2 class="section-title">QSL <span>GALLERY</span></h2>
-    <div class="subtitle">EVERY QSO IS A MEMORY</div>
-
-    <div class="grid">
-      <div class="card qsl-card">
-        <div>
-          <div class="number">QSL CARD COLLECTION</div>
-          <div class="big">BI4BHQ</div>
-          <p>My QSL cards and radio communication memories.</p>
-        </div>
-        <a class="qsl-link"
-           href="https://www.qrz.com/db/BI4BHQ"
-           target="_blank" rel="noopener">
-          VIEW QSL ON QRZ ↗
-        </a>
-      </div>
-      <div class="card qsl-card">
-        <div>
-          <div class="number">RADIO AMATEUR</div>
-          <div class="big">73</div>
-          <p>Best regards and good DX to all radio amateurs.</p>
-        </div>
-        <a class="qsl-link"
-           href="https://www.qrz.com/db/BI4BHQ"
-           target="_blank" rel="noopener">
-          VISIT MY QRZ PAGE ↗
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="logbook">
-  <div class="container">
-    <div class="eyebrow">04 / RADIO CONTACTS</div>
-    <h2 class="section-title">LOG<span>BOOK</span></h2>
-    <div class="subtitle">EVERY CONTACT CONNECTS THE WORLD</div>
-    <div class="card">
-      <h3>MY RADIO LOG</h3>
-      <p>
-        For QSO information, contact records and station details,
-        please visit my QRZ profile.
-      </p>
-      <br>
-      <a class="qsl-link"
-         href="https://www.qrz.com/db/BI4BHQ"
-         target="_blank" rel="noopener">
-        OPEN QRZ LOGBOOK / PROFILE ↗
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section contact" id="contact">
-  <div class="container">
-    <div class="eyebrow">05 / SEE YOU ON THE AIR</div>
-    <h2 class="section-title">SAY <span>HELLO</span></h2>
-    <div class="call">BI4BHQ</div>
-    <p>Shanghai, China</p>
-    <p>73 & GOOD DX</p>
-    <div class="buttons" style="justify-content:center">
-      <a class="btn primary"
-         href="https://www.qrz.com/db/BI4BHQ"
-         target="_blank" rel="noopener">CONTACT VIA QRZ</a>
-    </div>
-  </div>
-</section>
-
+<section class="hero" id="home"><div class="container hero-content">
+<div class="eyebrow">PERSONAL AMATEUR RADIO STATION OF CHINA</div>
+<h1>BI4<span>BHQ</span></h1><h2>BEYOND THE DISTANCE · CONNECT THE WORLD</h2>
+<p>From Shanghai, China.<br>Through the airwaves, connecting people across distance. Every signal carries a story.</p>
+<div class="buttons"><a class="btn primary" href="#station">MY STATION</a><a class="btn" href="https://www.qrz.com/db/BI4BHQ" target="_blank" rel="noopener">VISIT MY QRZ</a></div>
+<p class="eyebrow" style="margin-top:45px">JING'AN · SHANGHAI · CHINA</p>
+</div></section>
+<section class="section" id="about"><div class="container">
+<div class="eyebrow">01 / ABOUT ME</div><h2 class="section-title">ABOUT <span>BI4BHQ</span></h2>
+<div class="subtitle">A RADIO AMATEUR FROM SHANGHAI, CHINA</div>
+<p class="about-text">Welcome to my personal amateur radio station. I am BI4BHQ, based in Jing'an District, Shanghai, China.<br><br>
+Amateur radio is more than communication. It is the fascination of sending electromagnetic waves into the unknown, reaching someone far away without relying on the internet or cellular networks.<br><br>
+Different places, different voices, one shared frequency. See you on the air!</p>
+</div></section>
+<section class="section" id="station"><div class="container">
+<div class="eyebrow">02 / RADIO EQUIPMENT</div><h2 class="section-title">MY <span>STATION</span></h2>
+<div class="subtitle">THE EQUIPMENT BEHIND THE SIGNAL</div><div class="grid">
+<div class="card"><div class="station-label">CALLSIGN</div><div class="station-value">BI4BHQ</div><p>China Amateur Radio Station</p></div>
+<div class="card"><div class="station-label">RADIO</div><div class="station-value">威诺 N7600</div><p>Radio Transceiver</p></div>
+<div class="card"><div class="station-label">ANTENNA</div><div class="station-value">770R</div><p>Station Antenna</p></div>
+<div class="card"><div class="station-label">QTH</div><div class="station-value">JING'AN</div><p>Shanghai, China</p></div>
+</div></div></section>
+<section class="section" id="photos"><div class="container">
+<div class="photo-intro"><h2>PHOTO GALLERY</h2><p>Moments, journeys and memories.<br>A personal collection from BI4BHQ.</p></div>
+<div class="photo-category"><h3>RADIO &amp; THE AIRWAVES</h3><p>AMATEUR RADIO · COMMUNICATION · THE AIRWAVES</p></div>
+<div class="photo-grid" id="photo-radio"><div class="photo-loading">LOADING PHOTOS...</div></div>
+<div class="photo-category"><h3>JOURNEYS</h3><p>TRAVEL · LANDSCAPES · DISTANT PLACES</p></div>
+<div class="photo-grid" id="photo-journeys"><div class="photo-loading">LOADING PHOTOS...</div></div>
+<div class="photo-category"><h3>CITY &amp; LIFE</h3><p>URBAN LIGHTS · DAILY LIFE · CITY STORIES</p></div>
+<div class="photo-grid" id="photo-city"><div class="photo-loading">LOADING PHOTOS...</div></div>
+<div class="photo-category"><h3>MOMENTS</h3><p>FRAGMENTS OF TIME · PERSONAL MEMORIES</p></div>
+<div class="photo-grid" id="photo-moments"><div class="photo-loading">LOADING PHOTOS...</div></div>
+</div></section>
+<section class="section" id="qsl"><div class="container">
+<div class="eyebrow">04 / CONFIRMING CONTACTS</div><h2 class="section-title">QSL <span>GALLERY</span></h2><div class="subtitle">EVERY QSO IS A MEMORY</div>
+<div class="grid">
+<div class="card qsl-card"><div><div class="number">QSL CARD COLLECTION</div><div class="big">BI4BHQ</div><p>My QSL cards and radio communication memories.</p></div><a class="qsl-link" href="https://www.qrz.com/db/BI4BHQ" target="_blank" rel="noopener">VIEW QSL ON QRZ ↗</a></div>
+<div class="card qsl-card"><div><div class="number">RADIO AMATEUR</div><div class="big">73</div><p>Best regards and good DX to all radio amateurs.</p></div><a class="qsl-link" href="https://www.qrz.com/db/BI4BHQ" target="_blank" rel="noopener">VISIT MY QRZ PAGE ↗</a></div>
+</div></div></section>
+<section class="section" id="logbook"><div class="container">
+<div class="eyebrow">05 / RADIO CONTACTS</div><h2 class="section-title">LOG<span>BOOK</span></h2><div class="subtitle">EVERY CONTACT CONNECTS THE WORLD</div>
+<div class="card"><h3>MY RADIO LOG</h3><p>For QSO information, contact records and station details, please visit my QRZ profile.</p><br>
+<a class="qsl-link" href="https://www.qrz.com/db/BI4BHQ" target="_blank" rel="noopener">OPEN QRZ LOGBOOK / PROFILE ↗</a></div>
+</div></section>
+<section class="section contact" id="contact"><div class="container">
+<div class="eyebrow">06 / SEE YOU ON THE AIR</div><h2 class="section-title">SAY <span>HELLO</span></h2>
+<div class="call">BI4BHQ</div><p>Shanghai, China</p><p>73 &amp; GOOD DX</p>
+<div class="buttons" style="justify-content:center"><a class="btn primary" href="https://www.qrz.com/db/BI4BHQ" target="_blank" rel="noopener">CONTACT VIA QRZ</a></div>
+</div></section>
 </main>
-
-<footer>
-  <div class="container">
-    <strong>BI4BHQ</strong> · PERSONAL AMATEUR RADIO STATION OF CHINA
-    <br>
-    SHANGHAI · CHINA · 73 & GOOD DX
-    <br><br>
-    © 2026 BI4BHQ. ALL RIGHTS RESERVED.
-  </div>
-</footer>
-
-</body>
-</html>
-<br/>/* ==============================<br/>   BI4BHQ PHOTO GALLERY SCRIPT<br/>   Automatically load photos from GitHub<br/>   ============================== */<br/><br/>const PHOTO_REPOSITORY = "BI4BHQ/bi4bhq.github.io";<br/>const PHOTO_BRANCH = "main";<br/><br/>const PHOTO_CATEGORIES = [<br/>  {<br/>    folder: "01-radio",<br/>    target: "photo-radio"<br/>  },<br/>  {<br/>    folder: "02-journeys",<br/>    target: "photo-journeys"<br/>  },<br/>  {<br/>    folder: "03-city-life",<br/>    target: "photo-city"<br/>  },<br/>  {<br/>    folder: "04-moments",<br/>    target: "photo-moments"<br/>  }<br/>];<br/><br/>const PHOTO_EXTENSIONS =<br/>  /\.(jpg|jpeg|png|webp|gif|avif)$/i;<br/><br/>// Generate a readable title from the filename<br/>function photoTitle(filename) {<br/>  return filename<br/>    .replace(/\.[^/.]+$/, "")<br/>    .replace(/[-_]/g, " ")<br/>    .replace(/\b\w/g, letter => letter.toUpperCase());<br/>}<br/><br/>// Load photos from GitHub<br/>async function loadPhotoCategory(category) {<br/>  const container = document.getElementById(category.target);<br/><br/>  if (!container) return;<br/><br/>  const apiURL =<br/>    `https://api.github.com/repos/${PHOTO_REPOSITORY}/contents/assets/photos/${category.folder}?ref=${PHOTO_BRANCH}`;<br/><br/>  try {<br/>    const response = await fetch(apiURL);<br/><br/>    if (!response.ok) {<br/>      throw new Error("GitHub API request failed");<br/>    }<br/><br/>    const files = await response.json();<br/><br/>    const photos = files.filter(file =><br/>      file.type === "file" &&<br/>      PHOTO_EXTENSIONS.test(file.name)<br/>    );<br/><br/>    container.innerHTML = "";<br/><br/>    if (photos.length === 0) {<br/>      container.innerHTML =<br/>        '<div class="photo-empty">PHOTOS COMING SOON</div>';<br/>      return;<br/>    }<br/><br/>    photos.sort((a, b) => a.name.localeCompare(b.name));<br/><br/>    photos.forEach(file => {<br/>      const item = document.createElement("div");<br/>      item.className = "photo-item";<br/><br/>      const img = document.createElement("img");<br/>      img.src = file.download_url;<br/>      img.alt = photoTitle(file.name);<br/>      img.loading = "lazy";<br/><br/>      const caption = document.createElement("div");<br/>      caption.className = "photo-caption";<br/>      caption.textContent = photoTitle(file.name);<br/><br/>      item.appendChild(img);<br/>      item.appendChild(caption);<br/><br/>      item.addEventListener("click", () => {<br/>        openPhoto(file.download_url, photoTitle(file.name));<br/>      });<br/><br/>      container.appendChild(item);<br/>    });<br/><br/>  } catch (error) {<br/>    console.error("Photo loading error:", error);<br/><br/>    container.innerHTML =<br/>      '<div class="photo-empty">PHOTOS COMING SOON</div>';<br/>  }<br/>}<br/><br/>// Open full-screen photo<br/>function openPhoto(src, title) {<br/>  const lightbox = document.getElementById("photoLightbox");<br/>  const image = document.getElementById("photoLightboxImage");<br/>  const caption = document.getElementById("photoLightboxCaption");<br/><br/>  image.src = src;<br/>  image.alt = title;<br/>  caption.textContent = title;<br/><br/>  lightbox.classList.add("active");<br/>  document.body.style.overflow = "hidden";<br/>}<br/><br/>// Close full-screen photo<br/>function closePhoto() {<br/>  const lightbox = document.getElementById("photoLightbox");<br/><br/>  lightbox.classList.remove("active");<br/>  document.getElementById("photoLightboxImage").src = "";<br/><br/>  document.body.style.overflow = "";<br/>}<br/><br/>// Close button<br/>document.getElementById("photoLightboxClose")<br/>  .addEventListener("click", closePhoto);<br/><br/>// Click outside the image to close<br/>document.getElementById("photoLightbox")<br/>  .addEventListener("click", event => {<br/>    if (event.target.id === "photoLightbox") {<br/>      closePhoto();<br/>    }<br/>  });<br/><br/>// ESC key to close<br/>document.addEventListener("keydown", event => {<br/>  if (event.key === "Escape") {<br/>    closePhoto();<br/>  }<br/>});<br/><br/>// Load all four categories<br/>PHOTO_CATEGORIES.forEach(loadPhotoCategory);<br/>
-未选择文件
-
-
+<footer><div class="container"><strong>BI4BHQ</strong> · PERSONAL AMATEUR RADIO STATION OF CHINA<br>
+SHANGHAI · CHINA · 73 &amp; GOOD DX<br><br>© 2026 BI4BHQ. ALL RIGHTS RESERVED.</div></footer>
+<div class="photo-lightbox" id="photoLightbox" aria-modal="true" role="dialog">
+<button class="photo-lightbox-close" id="photoLightboxClose" aria-label="Close">&times;</button>
+<img id="photoLightboxImage" src="" alt=""><div class="photo-lightbox-caption" id="photoLightboxCaption"></div>
+</div>
+<script>
+const PHOTO_REPOSITORY="BI4BHQ/bi4bhq.github.io";
+const PHOTO_BRANCH="main";
+const PHOTO_CATEGORIES=[
+{folder:"01-radio",target:"photo-radio"},
+{folder:"02-journeys",target:"photo-journeys"},
+{folder:"03-city-life",target:"photo-city"},
+{folder:"04-moments",target:"photo-moments"}
+];
+const PHOTO_EXTENSIONS=/\.(jpg|jpeg|png|webp|gif|avif)$/i;
+function photoTitle(filename){return filename.replace(/\.[^/.]+$/,"").replace(/[-_]/g," ").replace(/\b\w/g,letter=>letter.toUpperCase())}
+async function loadPhotoCategory(category){
+const container=document.getElementById(category.target);if(!container)return;
+const apiURL=`https://api.github.com/repos/${PHOTO_REPOSITORY}/contents/assets/photos/${category.folder}?ref=${PHOTO_BRANCH}`;
+try{
+const response=await fetch(apiURL);if(!response.ok)throw new Error("GitHub API request failed");
+const files=await response.json();
+const photos=files.filter(file=>file.type==="file"&&PHOTO_EXTENSIONS.test(file.name));
+container.innerHTML="";
+if(photos.length===0){container.innerHTML='<div class="photo-empty">PHOTOS COMING SOON</div>';return}
+photos.sort((a,b)=>a.name.localeCompare(b.name));
+photos.forEach(file=>{
+const item=document.createElement("div");item.className="photo-item";
+const img=document.createElement("img");img.src=file.download_url;img.alt=photoTitle(file.name);img.loading="lazy";
+const caption=document.createElement("div");caption.className="photo-caption";caption.textContent=photoTitle(file.name);
+item.appendChild(img);item.appendChild(caption);
+item.addEventListener("click",()=>openPhoto(file.download_url,photoTitle(file.name)));
+container.appendChild(item);
+});
+}catch(error){console.error("Photo loading error:",error);container.innerHTML='<div class="photo-empty">PHOTOS COMING SOON</div>'}
+}
+function openPhoto(src,title){
+const lightbox=document.getElementById("photoLightbox");
+const image=document.getElementById("photoLightboxImage");
+image.src=src;image.alt=title;document.getElementById("photoLightboxCaption").textContent=title;
+lightbox.classList.add("active");document.body.style.overflow="hidden";
+}
+function closePhoto(){
+document.getElementById("photoLightbox").classList.remove("active");
+document.getElementById("photoLightboxImage").src="";document.body.style.overflow="";
+}
+document.getElementById("photoLightboxClose").addEventListener("click",closePhoto);
+document.getElementById("photoLightbox").addEventListener("click",event=>{if(event.target.id==="photoLightbox")closePhoto()});
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closePhoto()});
+PHOTO_CATEGORIES.forEach(loadPhotoCategory);
+</script>
 </body>
 </html>
