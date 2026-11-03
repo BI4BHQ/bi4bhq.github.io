@@ -132,29 +132,6 @@ SHANGHAI · CHINA · 73 &amp; GOOD DX<br><br>© 2026 BI4BHQ. ALL RIGHTS RESERVED
 <img id="photoLightboxImage" src="" alt=""><div class="photo-lightbox-caption" id="photoLightboxCaption"></div>
 </div>
 <script>
-const PHOTO_CATEGORIES = [
-  {
-    folder: "01-radio",
-    target: "photo-radio",
-    photos: ["IMG_3_415E389F-7FE5-4603-B012-EE6E5CA08656.jpeg"]
-  },
-  {
-    folder: "02-journeys",
-    target: "photo-journeys",
-    photos: ["IMG_8422.jpeg"]
-  },
-  {
-    folder: "03-city-life",
-    target: "photo-city",
-    photos: ["IMG_20260802_182029.jpeg"]
-  },
-  {
-    folder: "04-moments",
-    target: "photo-moments",
-    photos: ["mmexport1594604199095.jpeg"]
-  }
-];
-
 const PHOTO_BASE =
   "https://raw.githubusercontent.com/BI4BHQ/bi4bhq.github.io/main/assets/photos/";
 
@@ -170,6 +147,12 @@ function loadPhotoCategory(category) {
   if (!container) return;
 
   container.innerHTML = "";
+
+  if (!category.photos.length) {
+    container.innerHTML =
+      '<div class="photo-empty">NO PHOTOS YET</div>';
+    return;
+  }
 
   category.photos.forEach(filename => {
     const src = PHOTO_BASE + category.folder + "/" +
@@ -236,7 +219,36 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape") closePhoto();
 });
 
-PHOTO_CATEGORIES.forEach(loadPhotoCategory);
+async function initPhotoGallery() {
+  const containers = [
+    "photo-radio",
+    "photo-journeys",
+    "photo-city",
+    "photo-moments"
+  ];
+
+  try {
+    const response = await fetch(
+      "assets/photos/manifest.json?v=" + Date.now()
+    );
+
+    if (!response.ok) throw new Error("Manifest unavailable");
+
+    const categories = await response.json();
+    categories.forEach(loadPhotoCategory);
+  } catch (error) {
+    containers.forEach(id => {
+      const container = document.getElementById(id);
+      if (container) {
+        container.innerHTML =
+          '<div class="photo-empty">PHOTOS TEMPORARILY UNAVAILABLE</div>';
+      }
+    });
+    console.error("Photo gallery:", error);
+  }
+}
+
+initPhotoGallery();
 </script>
 </body>
 </html>
