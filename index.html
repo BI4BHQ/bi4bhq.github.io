@@ -387,8 +387,188 @@ async function initPhotoGallery() {
     console.error("Photo gallery:", error);
   }
 }
+// ======================================
+// CMS ARTICLES
+// ======================================
 
+function safeArticleImage(path) {
+  if (!path || typeof path !== "string") return "";
+
+  try {
+    const url = new URL(path, window.location.origin);
+
+    if (url.origin !== window.location.origin) return "";
+
+    const allowed =
+      url.pathname.startsWith("/assets/articles/") ||
+      url.pathname === "/assets/R0004429.jpeg";
+
+    return allowed ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function cleanArticleBody(html) {
+  const parser = new DOMParser();
+  const parsed = parser.parseFromString(
+    typeof html === "string" ? html : "",
+    "text/html"
+  );
+
+  const allowedTags = new Set([
+    "P", "BR", "STRONG", "B", "EM", "I", "U",
+    "UL", "OL", "LI", "H2", "H3", "BLOCKQUOTE",
+    "A", "IMG"
+  ]);
+
+  function copySafe(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      return document.createTextNode(node.textContent);
+    }
+
+    if (node.nodeType !== Node.ELEMENT_NODE) {
+      return document.createDocumentFragment();
+    }
+
+    const tag = node.tagName;
+
+    if (!allowedTags.has(tag)) {
+      const fragment = document.createDocumentFragment();
+      node.childNodes.forEach(child => {
+        fragment.appendChild(copySafe(child));
+      });
+      return fragment;
+    }
+
+    const element = document.createElement(tag.toLowerCase());
+
+    if (tag === "A") {
+      const href = node.getAttribute("href") || "";
+
+      if (href.startsWith("#")) {
+        element.setAttribute("href", href);
+      } else {
+        try {
+          const url = new URL(href, window.location.origin);
+          if (url.protocol === "https:" || url.protocol === "http:") {
+            element.href = url.href;
+            element.target = "_blank";
+            element.rel = "noopener noreferrer";
+          }
+        } catch {}
+      }
+    }
+
+    if (tag === "IMG") {
+      const src = safeArticleImage(node.getAttribute("src"));
+      if (!src) return document.createDocumentFragment();
+
+      element.src = src;
+      element.alt = node.getAttribute("alt") || "";
+      element.loading = "lazy";
+    }
+
+    node.childNodes.forEach(child => {
+      element.appendChild(copySafe(child));
+    });
+
+    return element;
+  }
+
+  const output = document.createDocumentFragment();
+
+  parsed.body.childNodes.forEach(node => {
+    output.appendChild(copySafe(node));
+  });
+
+  return output;
+}
+
+async function initArticles() {
+  const container = document.getElementById("article-list");
+  if (!container) return;
+
+  try {
+    const response = await fetch(
+      "assets/articles/manifest.json?v=" + Date.now()
+    );
+
+    if (!response.ok) {
+      throw new Error("Article manifest unavailable");
+    }
+
+    const articles = await response.json();
+
+    if (!Array.isArray(articles)) {
+      throw new Error("Invalid article manifest");
+    }
+
+    const published = articles
+      .filter(article =>
+        article &&
+        article.status === "published" &&
+        typeof article.title === "string"
+      )
+      .sort((a, b) =>
+        String(b.date || "").localeCompare(String(a.date || ""))
+      );
+
+    container.replaceChildren();
+
+    if (!published.length) {
+      container.textContent = "暂无已发布文章。";
+      return;
+    }
+
+    published.forEach(article => {
+      const card = document.createElement("article");
+      card.className = "article-card";
+
+      const meta = document.createElement("div");
+      meta.className = "article-meta";
+      meta.textContent = "THE JOURNAL · " + String(article.date || "");
+
+      const title = document.createElement("h3");
+      title.textContent = article.title;
+
+      card.append(meta, title);
+
+      let cover = safeArticleImage(article.cover);
+
+      if (!cover && article.title === "我们总是在怀念过去") {
+        cover = safeArticleImage("assets/R0004429.jpeg");
+      }
+
+      if (cover) {
+        const image = document.createElement("img");
+        image.className = "article-cover";
+        image.src = cover;
+        image.alt = article.title;
+        image.loading = "lazy";
+        card.appendChild(image);
+      }
+
+      const body = document.createElement("div");
+      body.className = "article-body";
+      body.appendChild(cleanArticleBody(article.body));
+      card.appendChild(body);
+
+      const footer = document.createElement("div");
+      footer.className = "article-footer";
+      footer.textContent = "BI4BHQ · SHANGHAI";
+      card.appendChild(footer);
+
+      container.appendChild(card);
+    });
+
+  } catch (error) {
+    console.error("CMS articles:", error);
+    container.textContent = "文章暂时无法加载，请稍后再试。";
+  }
+}
 initPhotoGallery();
+initArticles();
 </script>
 </body>
 </html>
