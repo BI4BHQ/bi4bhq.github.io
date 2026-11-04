@@ -24,9 +24,8 @@ content:
         - title
         - date
         - status
-      sort: 
-        — date
-      default：
+      sort: [date]
+      default:
         sort: date
         order: desc
     fields:
