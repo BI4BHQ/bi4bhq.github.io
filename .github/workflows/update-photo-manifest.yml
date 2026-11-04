@@ -34,7 +34,7 @@ jobs:
               {"folder": "04-moments", "target": "photo-moments"},
           ]
 
-          extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".jfif"}
+          extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".jfif", ".HEIC"}
 
           result = []
           for category in categories:
