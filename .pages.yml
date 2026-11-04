@@ -17,7 +17,7 @@ content:
     type: collection
     path: content/articles
     format: json
-    filename: "{primary}.json"
+    filename: "{year}-{month}-{day}-{hour}{minute}{second}.json"
     view:
       primary: title
       fields:
