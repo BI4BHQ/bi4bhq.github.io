@@ -6,7 +6,7 @@
       station: "电台设备",
       photos: "照片展示",
       biscione: "比肖内",
-      biscioneTitle:"比肖内",
+      biscioneTitle: "比肖内",
       qsl: "QSL 卡片",
       logbook: "通联日志",
       contact: "联系我",
@@ -25,6 +25,7 @@ hero: {
       station: "STATION",
       photos: "PHOTO GALLERY",
       biscione: "IL BISCIONE",
+      biscioneTitle: "IL <span>BISCIONE</span>,
       qsl: "QSL GALLERY",
       logbook: "LOGBOOK",
       contact: "CONTACT",
@@ -46,6 +47,7 @@ hero: {
       station: "STAZIONE",
       photos: "GALLERIA",
       biscione: "IL BISCIONE",
+      biscioneTitle: "IL <span>BISCIONE</span>,
       qsl: "GALLERIA QSL",
       logbook: "REGISTRO",
       contact: "CONTATTI",
@@ -204,7 +206,12 @@ if (heroContent && hero) {
   }
 }
 }
+// 翻译 IL BISCIONE 板块标题
+const biscioneTitle = document.querySelector("#biscione .section-title");
 
+if (biscioneTitle) {
+  biscioneTitle.innerHTML = translations[language].biscioneTitle;
+}
   switcher.addEventListener("click", event => {
     const button = event.target.closest("button[data-lang]");
     if (!button) return;
