@@ -82,13 +82,14 @@ hero: {
     <button data-lang="it">IT</button>
   `;
 
-  document.body.appendChild(switcher);
+  // 将语言切换按钮放到 BI4BHQ 标志后面
+const logo = document.querySelector("header .logo");
 
-  // 添加样式
-  const style = document.createElement("style");
-  style.textContent = `
-    #bi4bhq-language-switcher {
-      position: fixed;
+if (logo) {
+  logo.insertAdjacentElement("afterend", switcher);
+} else {
+  document.body.appendChild(switcher);
+}
       top: 18px;
       right: 5%;
       z-index: 99999;
