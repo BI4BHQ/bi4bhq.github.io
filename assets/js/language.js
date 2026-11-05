@@ -1,4 +1,4 @@
-(() => {
+～(() => {
   const translations = {
     zh: {
       home: "首页",
@@ -95,18 +95,18 @@ hero: {
   const style = document.createElement("style");
   style.textContent = `
     #bi4bhq-language-switcher {
-      position: static;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-left: 16px;
-      padding: 5px 10px;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+  padding: 2px 4px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 
     #bi4bhq-language-switcher button {
       border: none;
