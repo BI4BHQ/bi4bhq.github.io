@@ -1,4 +1,4 @@
-～(() => {
+(() => {
   const translations = {
     zh: {
       home: "首页",
