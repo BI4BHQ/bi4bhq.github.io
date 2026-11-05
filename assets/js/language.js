@@ -8,7 +8,14 @@
       biscione: "米兰蛇徽",
       qsl: "QSL 卡片",
       logbook: "通联日志",
-      contact: "联系我"
+      contact: "联系我",
+
+hero: {
+  eyebrow: ["中国业余无线电个人电台", "静安 · 上海 · 中国"],
+  title: "跨越距离 · 连接世界",
+  description: "来自中国上海。<br>通过无线电波，连接远方的人。每一道信号，都承载着一个故事。",
+  buttons: ["我的电台", "访问我的 QRZ"]
+}
     },
 
     en: {
@@ -19,7 +26,17 @@
       biscione: "IL BISCIONE",
       qsl: "QSL GALLERY",
       logbook: "LOGBOOK",
-      contact: "CONTACT"
+      contact: "CONTACT",
+
+hero: {
+  eyebrow: [
+    "PERSONAL AMATEUR RADIO STATION OF CHINA",
+    "JING'AN · SHANGHAI · CHINA"
+  ],
+  title: "BEYOND THE DISTANCE · CONNECT THE WORLD",
+  description: "From Shanghai, China.<br>Through the airwaves, connecting people across distance. Every signal carries a story.",
+  buttons: ["MY STATION", "VISIT MY QRZ"]
+}
     },
 
     it: {
@@ -30,7 +47,17 @@
       biscione: "IL BISCIONE",
       qsl: "GALLERIA QSL",
       logbook: "REGISTRO",
-      contact: "CONTATTI"
+      contact: "CONTATTI",
+
+hero: {
+  eyebrow: [
+    "STAZIONE RADIOAMATORIALE PERSONALE DELLA CINA",
+    "JING'AN · SHANGHAI · CINA"
+  ],
+  title: "OLTRE LA DISTANZA · CONNETTERE IL MONDO",
+  description: "Da Shanghai, Cina.<br>Attraverso le onde radio, connettendo persone lontane. Ogni segnale porta con sé una storia.",
+  buttons: ["LA MIA STAZIONE", "VISITA IL MIO QRZ"]
+}
     }
   };
 
@@ -138,6 +165,41 @@
         link.textContent = translations[language][key];
       }
     });
+    // 翻译首页首屏
+const hero = translations[language].hero;
+const heroContent = document.querySelector(".hero-content");
+
+if (heroContent && hero) {
+  const eyebrow = heroContent.querySelectorAll(".eyebrow");
+
+  if (eyebrow[0]) {
+    eyebrow[0].textContent = hero.eyebrow[0];
+  }
+
+  const title = heroContent.querySelector("h2");
+
+  if (title) {
+    title.textContent = hero.title;
+  }
+
+  const description = heroContent.querySelector("p");
+
+  if (description) {
+    description.innerHTML = hero.description;
+  }
+
+  const buttons = heroContent.querySelectorAll(".buttons a");
+
+  buttons.forEach((button, index) => {
+    if (hero.buttons[index]) {
+      button.textContent = hero.buttons[index];
+    }
+  });
+
+  if (eyebrow[1]) {
+    eyebrow[1].textContent = hero.eyebrow[1];
+  }
+}
 }
 
   switcher.addEventListener("click", event => {
