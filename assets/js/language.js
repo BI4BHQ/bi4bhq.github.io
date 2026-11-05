@@ -116,7 +116,29 @@
 
     document.documentElement.lang =
       language === "zh" ? "zh-CN" : language;
-  }
+
+    // 翻译顶部导航栏
+    const navLinks = document.querySelectorAll("header nav a");
+
+    const navItems = [
+      "home",
+      "about",
+      "station",
+      "photos",
+      "biscione",
+      "qsl",
+      "logbook",
+      "contact"
+    ];
+
+    navLinks.forEach((link, index) => {
+      const key = navItems[index];
+
+      if (key && translations[language][key]) {
+        link.textContent = translations[language][key];
+      }
+    });
+}
 
   switcher.addEventListener("click", event => {
     const button = event.target.closest("button[data-lang]");
