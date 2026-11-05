@@ -4,7 +4,7 @@
       home: "首页",
       about: "关于我",
       station: "电台设备",
-      photos: "照片展示",
+      photos: "照片墙",
       biscione: "比肖内",
       biscioneTitle: "比肖内",
       qsl: "QSL 卡片",
