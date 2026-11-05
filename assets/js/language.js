@@ -226,6 +226,21 @@ if (heroContent && hero) {
     eyebrow[1].textContent = hero.eyebrow[1];
   }
 }
+// 翻译 ABOUT BI4BHQ 板块
+const about = translations[language].aboutSection;
+const aboutSection = document.querySelector("#about");
+
+if (aboutSection && about) {
+  const eyebrow = aboutSection.querySelector(".eyebrow");
+  const title = aboutSection.querySelector(".section-title");
+  const subtitle = aboutSection.querySelector(".subtitle");
+  const description = aboutSection.querySelector(".about-text");
+
+  if (eyebrow) eyebrow.textContent = about.eyebrow;
+  if (title) title.innerHTML = about.title;
+  if (subtitle) subtitle.textContent = about.subtitle;
+  if (description) description.innerHTML = about.description;
+}
 // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
