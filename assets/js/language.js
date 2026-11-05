@@ -108,14 +108,15 @@ hero: {
   white-space: nowrap;
 }
 
-    #bi4bhq-language-switcher button {
-      border: none;
-      background: transparent;
-      color: #aaa;
-      font-size: 12px;
-      cursor: pointer;
-      padding: 3px;
-    }
+  #bi4bhq-language-switcher button {
+  border: none;
+  background: transparent;
+  color: #aaa;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px;
+  line-height: 1.5;
+}
 
     #bi4bhq-language-switcher button.active {
       color: #e32636;
