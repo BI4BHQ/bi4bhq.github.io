@@ -225,37 +225,7 @@ Different places, different voices, one shared frequency. See you on the air!</p
 
   </article>
   <div id="article-list" aria-live="polite"></div>
-  <!-- COMMENTS & REACTIONS -->
-  <div style="max-width:850px;margin:auto;padding:25px;background:#101115;border:1px solid rgba(255,255,255,.13);">
-
-    <h3 style="text-align:center;font-size:16px;letter-spacing:3px;">
-      JOIN THE CONVERSATION
-    </h3>
-
-    <p style="text-align:center;color:#888;font-size:12px;margin-bottom:25px;">
-      欢迎留下评论、分享想法，或为文章点亮喜欢。
-    </p>
-
-    <div class="giscus"></div>
-
-    <script src="https://giscus.app/client.js"
-          data-repo="BI4BHQ/bi4bhq.github.io"
-          data-repo-id="R_kgDOVg8u3Q"
-          data-category="General"
-          data-category-id="DIC_kwDOVg8u3c4DKWdB"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="dark"
-          data-lang="zh-CN"
-          crossorigin="anonymous"
-          async>
-    </script>
-
-  </div>
-
+ 
 </div>
 </section>
 <section class="section" id="qsl"><div class="container">
@@ -497,7 +467,47 @@ function cleanArticleBody(html) {
 
   return output;
 }
+function addArticleGiscus(card, article) {
+  const section = document.createElement("div");
+  section.className = "article-comments";
+  section.style.cssText =
+    "margin-top:25px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);";
 
+  const heading = document.createElement("div");
+  heading.textContent = "JOIN THE CONVERSATION";
+  heading.style.cssText =
+    "color:#c92332;font-size:11px;letter-spacing:2px;margin-bottom:18px;";
+
+  const comments = document.createElement("div");
+  section.append(heading, comments);
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.async = true;
+
+  const settings = {
+    "data-repo": "BI4BHQ/bi4bhq.github.io",
+    "data-repo-id": "R_kgDOVg8u3Q",
+    "data-category": "General",
+    "data-category-id": "DIC_kwDOVg8u3c4DKWdB",
+    "data-mapping": "specific",
+    "data-term": "BI4BHQ article: " + article.title,
+    "data-strict": "1",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "bottom",
+    "data-theme": "dark",
+    "data-lang": "zh-CN"
+  };
+
+  Object.entries(settings).forEach(([key, value]) => {
+    script.setAttribute(key, value);
+  });
+
+  script.crossOrigin = "anonymous";
+  comments.appendChild(script);
+  card.appendChild(section);
+}
 async function initArticles() {
   const container = document.getElementById("article-list");
   if (!container) return;
@@ -571,7 +581,7 @@ async function initArticles() {
       footer.className = "article-footer";
       footer.textContent = "BI4BHQ · SHANGHAI";
       card.appendChild(footer);
-
+      addArticleGiscus(card, article);
       container.appendChild(card);
     });
 
