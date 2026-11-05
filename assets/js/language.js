@@ -82,23 +82,30 @@ hero: {
     <button data-lang="it">IT</button>
   `;
 
-  // 将语言切换按钮放到 BI4BHQ 标志后面
-const logo = document.querySelector("header .logo");
+    // 将语言切换按钮放到 BI4BHQ 标志后面
+  const logo = document.querySelector("header .logo");
 
-if (logo) {
-  logo.insertAdjacentElement("afterend", switcher);
-} else {
-  document.body.appendChild(switcher);
-}
-      top: 18px;
-      right: 5%;
-      z-index: 99999;
+  if (logo) {
+    logo.insertAdjacentElement("afterend", switcher);
+  } else {
+    document.body.appendChild(switcher);
+  }
+
+  // 添加样式
+  const style = document.createElement("style");
+  style.textContent = `
+    #bi4bhq-language-switcher {
+      position: static;
       display: flex;
-      gap: 12px;
-      padding: 8px 12px;
-      background: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      gap: 10px;
+      margin-left: 16px;
+      padding: 5px 10px;
+      background: rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 20px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     #bi4bhq-language-switcher button {
@@ -113,13 +120,6 @@ if (logo) {
     #bi4bhq-language-switcher button.active {
       color: #e32636;
       font-weight: bold;
-    }
-
-    @media (max-width: 768px) {
-      #bi4bhq-language-switcher {
-        top: 12px;
-        right: 12px;
-      }
     }
   `;
 
