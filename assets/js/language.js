@@ -25,7 +25,7 @@ hero: {
       station: "STATION",
       photos: "PHOTO GALLERY",
       biscione: "IL BISCIONE",
-      biscioneTitle: "IL <span>BISCIONE</span>,
+      biscioneTitle: "IL <span>BISCIONE</span>",
       qsl: "QSL GALLERY",
       logbook: "LOGBOOK",
       contact: "CONTACT",
@@ -47,7 +47,7 @@ hero: {
       station: "STAZIONE",
       photos: "GALLERIA",
       biscione: "IL BISCIONE",
-      biscioneTitle: "IL <span>BISCIONE</span>,
+      biscioneTitle: "IL <span>BISCIONE</span>",
       qsl: "GALLERIA QSL",
       logbook: "REGISTRO",
       contact: "CONTATTI",
@@ -205,13 +205,14 @@ if (heroContent && hero) {
     eyebrow[1].textContent = hero.eyebrow[1];
   }
 }
-}
 // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
 if (biscioneTitle) {
   biscioneTitle.innerHTML = translations[language].biscioneTitle;
 }
+}
+
   switcher.addEventListener("click", event => {
     const button = event.target.closest("button[data-lang]");
     if (!button) return;
