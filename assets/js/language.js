@@ -25,7 +25,18 @@ aboutSection: {
   description: "欢迎来到我的个人业余无线电空间。我是 BI4BHQ，来自中国上海市静安区。<br><br>业余无线电不仅仅是一种通信方式。它更吸引我的，是将电磁波送入未知的世界，在不依赖互联网或移动通信网络的情况下，与远方的人建立联系。<br><br>不同的地方，不同的声音，却共享着同一个频率。空中见！"
 }
     },
-
+stationSection: {
+  eyebrow: "02 / 电台设备",
+  title: "我的 <span>电台设备</span>",
+  subtitle: "信号背后的设备",
+  labels: ["呼号", "电台设备", "天线", "电台位置"],
+  descriptions: [
+    "中国业余无线电台",
+    "无线电收发设备",
+    "电台天线",
+    "中国上海"
+  ]
+}
     en: {
       home: "HOME",
       about: "ABOUT",
@@ -54,7 +65,18 @@ aboutSection: {
   description: "Welcome to my personal amateur radio station. I am BI4BHQ, based in Jing'an District, Shanghai, China.<br><br>Amateur radio is more than communication. It is the fascination of sending electromagnetic waves into the unknown, reaching someone far away without relying on the internet or cellular networks.<br><br>Different places, different voices, one shared frequency. See you on the air!"
 }
     },
-
+stationSection: {
+  eyebrow: "02 / RADIO EQUIPMENT",
+  title: "MY <span>STATION</span>",
+  subtitle: "THE EQUIPMENT BEHIND THE SIGNAL",
+  labels: ["CALLSIGN", "RADIO", "ANTENNA", "QTH"],
+  descriptions: [
+    "China Amateur Radio Station",
+    "Radio Transceiver",
+    "Station Antenna",
+    "Shanghai, China"
+  ]
+}
     it: {
       home: "HOME",
       about: "CHI SONO",
@@ -82,7 +104,19 @@ aboutSection: {
   subtitle: "UN RADIOAMATORE DA SHANGHAI, CINA",
   description: "Benvenuti nella mia stazione radioamatoriale personale. Sono BI4BHQ e mi trovo nel distretto di Jing'an, a Shanghai, in Cina.<br><br>La radio amatoriale è molto più di un semplice mezzo di comunicazione. Il suo fascino sta nel trasmettere onde elettromagnetiche verso l'ignoto e raggiungere persone lontane, senza dipendere da Internet o dalle reti cellulari.<br><br>Luoghi diversi, voci diverse, ma un'unica frequenza condivisa. Ci sentiamo in radio!"
 }
-    }
+    },
+  stationSection: {
+  eyebrow: "02 / APPARECCHIATURE RADIO",
+  title: "LA MIA <span>STAZIONE</span>",
+  subtitle: "LE APPARECCHIATURE DIETRO IL SEGNALE",
+  labels: ["NOMINATIVO", "RICETRASMETTITORE", "ANTENNA", "QTH"],
+  descriptions: [
+    "Stazione radioamatoriale cinese",
+    "Ricetrasmettitore",
+    "Antenna della stazione",
+    "Shanghai, Cina"
+  ]
+}
   };
 
   const languageNames = {
