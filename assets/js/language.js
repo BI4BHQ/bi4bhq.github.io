@@ -275,6 +275,33 @@ if (aboutSection && about) {
   if (subtitle) subtitle.textContent = about.subtitle;
   if (description) description.innerHTML = about.description;
 }
+        // 翻译 MY STATION 板块
+    const station = translations[language].stationSection;
+    const stationSection = document.querySelector("#station");
+
+    if (stationSection && station) {
+      const eyebrow = stationSection.querySelector(".eyebrow");
+      const title = stationSection.querySelector(".section-title");
+      const subtitle = stationSection.querySelector(".subtitle");
+      const labels = stationSection.querySelectorAll(".station-label");
+      const descriptions = stationSection.querySelectorAll(".card p");
+
+      if (eyebrow) eyebrow.textContent = station.eyebrow;
+      if (title) title.innerHTML = station.title;
+      if (subtitle) subtitle.textContent = station.subtitle;
+
+      labels.forEach((label, index) => {
+        if (station.labels[index]) {
+          label.textContent = station.labels[index];
+        }
+      });
+
+      descriptions.forEach((item, index) => {
+        if (station.descriptions[index]) {
+          item.textContent = station.descriptions[index];
+        }
+      });
+    }
 // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
