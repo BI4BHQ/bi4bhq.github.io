@@ -342,53 +342,52 @@ document.addEventListener("keydown", event => {
 });
 
 
+
 async function initPhotoGallery() {
-  const categories = [
-    { target: "photo-radio", folder: "01-radio" },
-    { target: "photo-journeys", folder: "02-journeys" },
-    { target: "photo-city", folder: "03-city-life" },
-    { target: "photo-moments", folder: "04-moments" }
+  const containers = [
+    "photo-radio",
+    "photo-journeys",
+    "photo-city",
+    "photo-moments"
   ];
 
-  const apiBase =
-    "https://api.github.com/repos/BI4BHQ/bi4bhq.github.io/contents/assets/photos/";
+  try {
+    const response = await fetch(
+      "assets/photos/manifest.json?v=" + Date.now(),
+      { cache: "no-store" }
+    );
 
-  const imageExtensions = /\.(jpe?g|png|webp|gif|avif)$/i;
+    if (!response.ok) {
+      throw new Error("Photo manifest unavailable");
+    }
 
-  await Promise.all(categories.map(async category => {
-    const container = document.getElementById(category.target);
+    const categories = await response.json();
 
-    if (!container) return;
-
-    try {
-      const response = await fetch(
-        apiBase + category.folder + "?ref=main",
-        { cache: "no-store" }
-      );
-
-      if (!response.ok) {
-        throw new Error("Photo folder unavailable");
+    categories.forEach(category => {
+      if (
+        !Array.isArray(category.photos) ||
+        !category.target ||
+        !category.folder
+      ) {
+        console.error("Invalid photo category:", category);
+        return;
       }
 
-      const files = await response.json();
-
-      category.photos = files
-        .filter(file =>
-          file.type === "file" &&
-          imageExtensions.test(file.name)
-        )
-        .map(file => file.name)
-        .sort();
-
       loadPhotoCategory(category);
+    });
 
-    } catch (error) {
-      console.error("Photo gallery error:", category.folder, error);
+  } catch (error) {
+    console.error("Photo gallery error:", error);
 
-      container.innerHTML =
-        '<div class="photo-empty">PHOTOS TEMPORARILY UNAVAILABLE</div>';
-    }
-  }));
+    containers.forEach(id => {
+      const container = document.getElementById(id);
+
+      if (container) {
+        container.innerHTML =
+          '<div class="photo-empty">PHOTOS TEMPORARILY UNAVAILABLE</div>';
+      }
+    });
+  }
 }
 
 // ======================================
