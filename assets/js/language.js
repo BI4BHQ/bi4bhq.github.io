@@ -99,9 +99,36 @@ stationSection: {
   descriptions: [
     "China Amateur Radio Station",
     "Radio Transceiver",
-    "Station Antenna",
+        "Station Antenna",
     "Shanghai, China"
   ]
+},
+photosSection: {
+  eyebrow: "03 / MOMENTS & MEMORIES",
+  title: "PHOTO GALLERY",
+  description: "Moments, journeys and memories.<br>A personal collection from BI4BHQ.",
+  categories: [
+    {
+      title: "RADIO & THE AIRWAVES",
+      subtitle: "AMATEUR RADIO · COMMUNICATION · THE AIRWAVES"
+    },
+    {
+      title: "JOURNEYS",
+      subtitle: "TRAVEL · LANDSCAPES · DISTANT PLACES"
+    },
+    {
+      title: "CITY & LIFE",
+      subtitle: "URBAN LIGHTS · DAILY LIFE · CITY STORIES"
+    },
+    {
+      title: "MOMENTS",
+      subtitle: "FRAGMENTS OF TIME · PERSONAL MEMORIES"
+    }
+  ],
+  loading: "LOADING PHOTOS...",
+  empty: "NO PHOTOS YET",
+  unavailable: "PHOTO UNAVAILABLE",
+  failed: "PHOTOS TEMPORARILY UNAVAILABLE"
 }
     },
     it: {
