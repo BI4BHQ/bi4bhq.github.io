@@ -525,7 +525,26 @@ if (qslArea && qslSection) {
     if (link) link.textContent = translated.link;
   });
 }
-// 翻译 IL BISCIONE 板块标题
+// 翻译 LOGBOOK 模块
+const logbookSection = translations[language].logbookSection;
+const logbookArea = document.querySelector("#logbook");
+
+if (logbookArea && logbookSection) {
+  const eyebrow = logbookArea.querySelector(".eyebrow");
+  const title = logbookArea.querySelector(".section-title");
+  const subtitle = logbookArea.querySelector(".subtitle");
+  const cardTitle = logbookArea.querySelector("h3");
+  const description = logbookArea.querySelector("p");
+  const link = logbookArea.querySelector(".qsl-link");
+
+  if (eyebrow) eyebrow.textContent = logbookSection.eyebrow;
+  if (title) title.innerHTML = logbookSection.title;
+  if (subtitle) subtitle.textContent = logbookSection.subtitle;
+  if (cardTitle) cardTitle.textContent = logbookSection.cardTitle;
+  if (description) description.textContent = logbookSection.description;
+  if (link) link.textContent = logbookSection.link;
+}
+    // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
 if (biscioneTitle) {
