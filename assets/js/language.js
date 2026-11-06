@@ -230,6 +230,23 @@ photosSection: {
   empty: "NESSUNA FOTO",
   unavailable: "FOTO NON DISPONIBILE",
   failed: "FOTO TEMPORANEAMENTE NON DISPONIBILI"
+},
+qslSection: {
+  eyebrow: "05 / CONFERMARE I CONTATTI",
+  title: "GALLERIA <span>QSL</span>",
+  subtitle: "OGNI QSO È UN RICORDO",
+  cards: [
+    {
+      number: "COLLEZIONE DI CARTOLINE QSL",
+      description: "Le mie cartoline QSL e i ricordi dei collegamenti radio.",
+      link: "VEDI LE QSL SU QRZ ↗"
+    },
+    {
+      number: "RADIOAMATORE",
+      description: "Un caro saluto e buon DX a tutti i radioamatori.",
+      link: "VISITA LA MIA PAGINA QRZ ↗"
+    }
+  ]
 }
     }
   };
