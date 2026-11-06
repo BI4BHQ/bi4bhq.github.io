@@ -409,7 +409,20 @@ if (photoArea && photoSection) {
   photoArea.querySelectorAll(".photo-loading").forEach(item => {
     item.textContent = photoSection.loading;
   });
-}
+
+  // 更新每张照片的标题
+  photoArea.querySelectorAll(".photo-item").forEach(item => {
+    const filename = item.dataset.filename;
+    if (!filename) return;
+
+    const translatedTitle = photoTitle(filename);
+    const caption = item.querySelector(".photo-caption");
+    const image = item.querySelector("img");
+
+    if (caption) caption.textContent = translatedTitle;
+    if (image) image.alt = translatedTitle;
+  });
+}  
 // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
