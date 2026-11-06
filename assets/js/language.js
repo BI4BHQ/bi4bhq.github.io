@@ -80,6 +80,14 @@ stationSection: {
         }
       ]
     }
+          logbookSection: {
+      eyebrow: "06 / 无线电通联",
+      title: "通联<span>日志</span>",
+      subtitle: "每一次通联，都让世界彼此连接",
+      cardTitle: "我的通联记录",
+      description: "如需查看 QSO 通联信息、通联记录及电台详情，请访问我的 QRZ 个人主页。",
+      link: "打开 QRZ 通联日志 / 个人主页 ↗"
+    },
     },
     en: {
       home: "HOME",
