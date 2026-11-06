@@ -293,6 +293,17 @@ logbookSection: {
   cardTitle: "IL MIO LOG RADIO",
   description: "Per informazioni sui QSO, i registri dei collegamenti e i dettagli della stazione, visita il mio profilo QRZ.",
   link: "APRI IL LOG QRZ / PROFILO ↗"
+},
+contactSection: {
+  eyebrow: "07 / CI SENTIAMO IN RADIO",
+  title: "DI' <span>CIAO</span>",
+  location: "Shanghai, Cina",
+  greeting: "73 & BUON DX",
+  emailButton: "CONTATTAMI VIA EMAIL",
+  copyButton: "COPIA EMAIL",
+  copied: "COPIATO!",
+  qslButton: "RICHIEDI LO SCAMBIO DI CARTOLINE QSL",
+  qslDescription: "CONFERMA IL NOSTRO QSO E RICHIEDI UNA CARTOLINA QSL"
 }
     }
   };
