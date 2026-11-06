@@ -124,6 +124,89 @@ footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing
   font-size:11px;
   letter-spacing:2px;
 }
+  /* IL BISCIONE EASTER EGG */
+.biscione-easter-egg{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at center,rgba(130,15,28,.35),transparent 45%),
+    #050507;
+  opacity:0;
+}
+
+.biscione-easter-egg.active{
+  display:flex;
+  animation:biscioneFadeIn .7s ease forwards;
+}
+
+.biscione-egg-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:25px;
+}
+
+.biscione-egg-signal{
+  position:absolute;
+  width:220px;
+  height:220px;
+  border:1px solid rgba(201,35,50,.7);
+  border-radius:50%;
+  box-shadow:0 0 35px rgba(201,35,50,.25);
+  animation:biscioneSignal 3s ease-out infinite;
+}
+
+.biscione-egg-signal:nth-child(2){
+  animation-delay:1s;
+}
+
+.biscione-egg-signal:nth-child(3){
+  animation-delay:2s;
+}
+
+.biscione-egg-title{
+  color:#c92332;
+  font-size:clamp(38px,9vw,68px);
+  font-weight:850;
+  letter-spacing:7px;
+  text-shadow:0 0 25px rgba(201,35,50,.5);
+}
+
+.biscione-egg-call{
+  margin-top:18px;
+  color:#f4f2ee;
+  font-size:18px;
+  letter-spacing:8px;
+}
+
+.biscione-egg-message{
+  margin-top:28px;
+  color:#aaa;
+  font-size:12px;
+  letter-spacing:2px;
+  line-height:2;
+}
+
+@keyframes biscioneFadeIn{
+  to{opacity:1}
+}
+
+@keyframes biscioneSignal{
+  0%{transform:scale(.35);opacity:.8}
+  100%{transform:scale(2.2);opacity:0}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .biscione-easter-egg *,
+  .biscione-easter-egg{
+    animation:none!important;
+  }
+}
  @media(max-width:650px){
  .nav{align-items:flex-start;padding:18px 0;flex-direction:column}
  nav{gap:12px 18px;flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:8px}
