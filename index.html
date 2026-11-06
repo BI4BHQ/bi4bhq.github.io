@@ -202,7 +202,35 @@ footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing
 .biscione-easter-egg.active .biscione-egg-signal:nth-child(4){
   animation-delay:2.3s;
 }
-
+/* 中央红色信号线 */
+.biscione-egg-signal-line{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:100vw;
+  height:42px;
+  opacity:0;
+  transform:translate(-50%,-50%) scaleX(0);
+  transform-origin:center;
+  background:linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201,35,50,.25) 15%,
+    #c92332 50%,
+    rgba(201,35,50,.25) 85%,
+    transparent 100%
+  );
+  clip-path:polygon(
+    0 48%, 10% 48%, 12% 25%, 14% 75%,
+    16% 42%, 20% 48%, 30% 48%, 35% 35%,
+    38% 62%, 42% 48%, 47% 48%, 49% 15%,
+    50% 85%, 51% 15%, 53% 48%, 58% 48%,
+    62% 62%, 65% 35%, 70% 48%, 80% 48%,
+    84% 42%, 86% 75%, 88% 25%, 90% 48%,
+    100% 48%, 100% 52%, 0 52%
+  );
+  filter:drop-shadow(0 0 8px rgba(201,35,50,.9));
+}
 .biscione-egg-title{
   color:#c92332;
   font-size:clamp(38px,9vw,68px);
