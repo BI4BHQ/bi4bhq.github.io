@@ -146,6 +146,23 @@ photosSection: {
   empty: "NO PHOTOS YET",
   unavailable: "PHOTO UNAVAILABLE",
   failed: "PHOTOS TEMPORARILY UNAVAILABLE"
+},
+qslSection: {
+  eyebrow: "05 / CONFIRMING CONTACTS",
+  title: "QSL <span>GALLERY</span>",
+  subtitle: "EVERY QSO IS A MEMORY",
+  cards: [
+    {
+      number: "QSL CARD COLLECTION",
+      description: "My QSL cards and radio communication memories.",
+      link: "VIEW QSL ON QRZ ↗"
+    },
+    {
+      number: "RADIO AMATEUR",
+      description: "Best regards and good DX to all radio amateurs.",
+      link: "VISIT MY QRZ PAGE ↗"
+    }
+  ]
 }
     },
     it: {
