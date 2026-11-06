@@ -35,7 +35,8 @@ stationSection: {
     "电台天线",
     "中国上海"
   ]
-},
+}
+    },
     en: {
       home: "HOME",
       about: "ABOUT",
@@ -74,7 +75,8 @@ stationSection: {
     "Station Antenna",
     "Shanghai, China"
   ]
-},
+}
+    },
     it: {
       home: "HOME",
       about: "CHI SONO",
