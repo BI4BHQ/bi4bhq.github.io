@@ -214,6 +214,8 @@ contactSection: {
       photos: "GALLERIA",
       biscione: "IL BISCIONE",
       biscioneTitle: "IL <span>BISCIONE</span>",
+      biscioneEyebrow: "04 / STORIE E RIFLESSIONI",
+      biscioneSubtitle: "IL SERPENTE DI SHANGHAI",
       qsl: "GALLERIA QSL",
       logbook: "REGISTRO",
       contact: "CONTATTI",
