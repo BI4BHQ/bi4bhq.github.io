@@ -171,6 +171,14 @@ qslSection: {
       link: "VISIT MY QRZ PAGE ↗"
     }
   ]
+},
+logbookSection: {
+  eyebrow: "06 / RADIO CONTACTS",
+  title: "LOG<span>BOOK</span>",
+  subtitle: "EVERY CONTACT CONNECTS THE WORLD",
+  cardTitle: "MY RADIO LOG",
+  description: "For QSO information, contact records and station details, please visit my QRZ profile.",
+  link: "OPEN QRZ LOGBOOK / PROFILE ↗"
 }
     },
     it: {
