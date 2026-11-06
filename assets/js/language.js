@@ -92,7 +92,7 @@ stationSection: {
     },
        contactSection: {
       eyebrow: "07 / 空中相会",
-      title: "打个<span>招呼</span>",
+      title: "你<span>好</span>",
       location: "中国上海",
       greeting: "73 & 祝大家取得更多远距离通联",
       emailButton: "发送邮件",
