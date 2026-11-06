@@ -7,6 +7,8 @@
       photos: "照片墙",
       biscione: "比肖内",
       biscioneTitle: "比肖内",
+      biscioneEyebrow: "04 / 故事与感悟",
+      biscioneSubtitle: "上海之魂",
       qsl: "QSL 卡片",
       logbook: "通联日志",
       contact: "联系我",
