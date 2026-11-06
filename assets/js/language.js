@@ -625,7 +625,7 @@ if (biscioneArea) {
   const biscioneEyebrow = biscioneArea.querySelector(".eyebrow");
   const biscioneTitle = biscioneArea.querySelector(".section-title");
   const biscioneSubtitle = biscioneTitle
-    ? biscioneTitle.nextElementSibling.nextElementSibling
+    ? biscioneTitle.nextElementSibling
     : null;
 
   if (biscioneEyebrow) {
