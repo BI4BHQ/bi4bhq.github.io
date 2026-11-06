@@ -264,12 +264,256 @@ const PHOTO_BASE =
   "https://raw.githubusercontent.com/BI4BHQ/bi4bhq.github.io/main/assets/photos/";
 
 function photoTitle(filename) {
-  return filename
+  const language = localStorage.getItem("bi4bhq-language") || "zh";
+
+  const titles = {
+    "IMG_3_415E389F-7FE5-4603-B012-EE6E5CA08656.jpeg": {
+      zh: "无线电时光",
+      en: "Radio Moments",
+      it: "Momenti di Radio"
+    },
+    "Alonso.JPG": {
+      zh: "阿隆索",
+      en: "Alonso",
+      it: "Alonso"
+    },
+    "Cattedrale di Santa Maria del Fiore.JPG": {
+      zh: "圣母百花大教堂",
+      en: "Cathedral of Santa Maria del Fiore",
+      it: "Cattedrale di Santa Maria del Fiore"
+    },
+    "Kimi, Red doesn't suit u.jpg": {
+      zh: "基米，红色并不适合你",
+      en: "Kimi, Red Doesn't Suit You",
+      it: "Kimi, il rosso non ti dona"
+    },
+    "Kimi.JPG": {
+      zh: "基米",
+      en: "Kimi",
+      it: "Kimi"
+    },
+    "Micheal.JPG": {
+      zh: "迈克尔",
+      en: "Michael",
+      it: "Michael"
+    },
+    "Monza Red.JPG": {
+      zh: "蒙扎红",
+      en: "Monza Red",
+      it: "Rosso Monza"
+    },
+    "Notre-Dame de Paris.JPG": {
+      zh: "巴黎圣母院",
+      en: "Notre-Dame de Paris",
+      it: "Cattedrale di Notre-Dame"
+    },
+    "Paris.JPG": {
+      zh: "巴黎",
+      en: "Paris",
+      it: "Parigi"
+    },
+    "SPA.JPG": {
+      zh: "斯帕赛道",
+      en: "Spa Circuit",
+      it: "Circuito di Spa"
+    },
+    "Start Line at Monza.JPG": {
+      zh: "蒙扎发车线",
+      en: "Start Line at Monza",
+      it: "Griglia di partenza a Monza"
+    },
+    "千里江山.jpg": {
+      zh: "千里江山",
+      en: "A Thousand Miles of Mountains and Rivers",
+      it: "Mille Li di Montagne e Fiumi"
+    },
+    "巴音布鲁克九湾落日.JPG": {
+      zh: "巴音布鲁克九曲落日",
+      en: "Sunset over the Nine Bends of Bayinbuluke",
+      it: "Tramonto sulle Nove Curve di Bayinbuluke"
+    },
+    "巴音布鲁克夕阳.JPG": {
+      zh: "巴音布鲁克夕阳",
+      en: "Sunset in Bayinbuluke",
+      it: "Tramonto a Bayinbuluke"
+    },
+    "巴音布鲁克草原.JPG": {
+      zh: "巴音布鲁克草原",
+      en: "Bayinbuluke Grassland",
+      it: "Prateria di Bayinbuluke"
+    },
+    "张家界.JPG": {
+      zh: "张家界",
+      en: "Zhangjiajie",
+      it: "Zhangjiajie"
+    },
+    "捕梦人.JPG": {
+      zh: "捕梦人",
+      en: "Dream Catcher",
+      it: "Acchiappasogni"
+    },
+    "沙巴.JPG": {
+      zh: "沙巴",
+      en: "Sabah",
+      it: "Sabah"
+    },
+    "洮黄之交.jpg": {
+      zh: "洮黄之交",
+      en: "Where the Tao Meets the Yellow River",
+      it: "Dove il Tao incontra il Fiume Giallo"
+    },
+    "独库.jpg": {
+      zh: "独库公路",
+      en: "Duku Highway",
+      it: "Strada del Duku"
+    },
+    "石河子.JPG": {
+      zh: "石河子",
+      en: "Shihezi",
+      it: "Shihezi"
+    },
+    "翡翠湖.JPG": {
+      zh: "翡翠湖",
+      en: "Emerald Lake",
+      it: "Lago di Smeraldo"
+    },
+    "茶卡盐湖.jpg": {
+      zh: "茶卡盐湖",
+      en: "Chaka Salt Lake",
+      it: "Lago Salato di Chaka"
+    },
+    "萨尔斯堡要塞小径.JPG": {
+      zh: "萨尔茨堡要塞小径",
+      en: "Path to Hohensalzburg Fortress",
+      it: "Sentiero della Fortezza di Hohensalzburg"
+    },
+    "赛里木湖.jpg": {
+      zh: "赛里木湖",
+      en: "Sayram Lake",
+      it: "Lago Sayram"
+    },
+    "赛里木湖边.jpg": {
+      zh: "赛里木湖畔",
+      en: "By Sayram Lake",
+      it: "Sulle rive del Lago Sayram"
+    },
+    "连霍高速.JPG": {
+      zh: "连霍高速公路",
+      en: "Lianhuo Expressway",
+      it: "Autostrada Lianhuo"
+    },
+    "那拉提.JPG": {
+      zh: "那拉提",
+      en: "Nalati",
+      it: "Nalati"
+    },
+    "阳朔工农桥.jpg": {
+      zh: "阳朔工农桥",
+      en: "Gongnong Bridge, Yangshuo",
+      it: "Ponte Gongnong, Yangshuo"
+    },
+    "阿曼尼莎汗宫.jpg": {
+      zh: "阿曼尼莎汗宫",
+      en: "Amannisa Khan Palace",
+      it: "Palazzo di Amannisa Khan"
+    },
+    "青海湖.jpg": {
+      zh: "青海湖",
+      en: "Qinghai Lake",
+      it: "Lago Qinghai"
+    },
+    "黄河.jpg": {
+      zh: "黄河",
+      en: "Yellow River",
+      it: "Fiume Giallo"
+    },
+    "115.jfif": {
+      zh: "城市一角",
+      en: "A Corner of the City",
+      it: "Un Angolo della Città"
+    },
+    "GR.jpg": {
+      zh: "GR",
+      en: "GR",
+      it: "GR"
+    },
+    "上海.jpg": {
+      zh: "上海",
+      en: "Shanghai",
+      it: "Shanghai"
+    },
+    "午餐路边.jfif": {
+      zh: "路边午餐",
+      en: "Lunch by the Road",
+      it: "Pranzo in Strada"
+    },
+    "大青山公路.jpg": {
+      zh: "大青山公路",
+      en: "Daqingshan Road",
+      it: "Strada di Daqingshan"
+    },
+    "奔跑.JPG": {
+      zh: "奔跑",
+      en: "Running",
+      it: "Correre"
+    },
+    "舟山小镇民宿.jfif": {
+      zh: "舟山小镇民宿",
+      en: "Guesthouse in a Zhoushan Town",
+      it: "Locanda in un Paese di Zhoushan"
+    },
+    "舟山海边公园.jfif": {
+      zh: "舟山海边公园",
+      en: "Seaside Park in Zhoushan",
+      it: "Parco sul Mare a Zhoushan"
+    },
+    "舟山灯塔.jfif": {
+      zh: "舟山灯塔",
+      en: "Zhoushan Lighthouse",
+      it: "Faro di Zhoushan"
+    },
+    "苏河湾.JPG": {
+      zh: "苏河湾",
+      en: "Suzhou Creek Bay",
+      it: "Baia del Suzhou Creek"
+    },
+    "马目山.jpg": {
+      zh: "马目山",
+      en: "Mamushan Mountain",
+      it: "Monte Mamushan"
+    },
+    "mmexport1594604199095.jpeg": {
+      zh: "时光留影",
+      en: "A Moment in Time",
+      it: "Un Momento nel Tempo"
+    },
+    "光影.JPG": {
+      zh: "光与影",
+      en: "Light and Shadow",
+      it: "Luce e Ombra"
+    },
+    "垃圾房日落.jpg": {
+      zh: "日落时分",
+      en: "Sunset",
+      it: "Tramonto"
+    },
+    "红.JPG": {
+      zh: "红",
+      en: "Red",
+      it: "Rosso"
+    },
+    "阳台.jpg": {
+      zh: "阳台",
+      en: "Balcony",
+      it: "Balcone"
+    }
+  };
+
+  return titles[filename]?.[language] || filename
     .replace(/\.[^/.]+$/, "")
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, letter => letter.toUpperCase());
 }
-
 function loadPhotoCategory(category) {
   const container = document.getElementById(category.target);
   if (!container) return;
