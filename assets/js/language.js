@@ -585,7 +585,7 @@ if (logbookArea && logbookSection) {
 }
     // 翻译 CONTACT 模块
 const contactSection = translations[language].contactSection;
-const contactArea = document.querySelector("#contact");
+const contactArea = document.getElementById("contact");
 
 if (contactArea && contactSection) {
   const eyebrow = contactArea.querySelector(".eyebrow");
