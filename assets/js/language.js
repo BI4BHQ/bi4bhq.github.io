@@ -474,6 +474,33 @@ if (photoArea && photoSection) {
     if (image) image.alt = translatedTitle;
   });
 }  
+    // 翻译 QSL GALLERY 模块
+const qslSection = translations[language].qslSection;
+const qslArea = document.querySelector("#qsl");
+
+if (qslArea && qslSection) {
+  const eyebrow = qslArea.querySelector(".eyebrow");
+  const title = qslArea.querySelector(".section-title");
+  const subtitle = qslArea.querySelector(".subtitle");
+  const cards = qslArea.querySelectorAll(".qsl-card");
+
+  if (eyebrow) eyebrow.textContent = qslSection.eyebrow;
+  if (title) title.innerHTML = qslSection.title;
+  if (subtitle) subtitle.textContent = qslSection.subtitle;
+
+  cards.forEach((card, index) => {
+    const translated = qslSection.cards[index];
+    if (!translated) return;
+
+    const number = card.querySelector(".number");
+    const description = card.querySelector("p");
+    const link = card.querySelector(".qsl-link");
+
+    if (number) number.textContent = translated.number;
+    if (description) description.textContent = translated.description;
+    if (link) link.textContent = translated.link;
+  });
+}
 // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
