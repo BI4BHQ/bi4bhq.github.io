@@ -618,11 +618,27 @@ if (contactArea && contactSection) {
   if (qslButton) qslButton.textContent = contactSection.qslButton;
   if (qslDescription) qslDescription.textContent = contactSection.qslDescription;
 }
-    // 翻译 IL BISCIONE 板块标题
-const biscioneTitle = document.querySelector("#biscione .section-title");
+    // 翻译 IL BISCIONE 模块
+const biscioneArea = document.querySelector("#biscione");
 
-if (biscioneTitle) {
-  biscioneTitle.innerHTML = translations[language].biscioneTitle;
+if (biscioneArea) {
+  const biscioneEyebrow = biscioneArea.querySelector(".eyebrow");
+  const biscioneTitle = biscioneArea.querySelector(".section-title");
+  const biscioneSubtitle = biscioneTitle
+    ? biscioneTitle.nextElementSibling.nextElementSibling
+    : null;
+
+  if (biscioneEyebrow) {
+    biscioneEyebrow.textContent = translations[language].biscioneEyebrow;
+  }
+
+  if (biscioneTitle) {
+    biscioneTitle.innerHTML = translations[language].biscioneTitle;
+  }
+
+  if (biscioneSubtitle) {
+    biscioneSubtitle.textContent = translations[language].biscioneSubtitle;
+  }
 }
 }
 
