@@ -88,6 +88,17 @@ stationSection: {
       description: "如需查看 QSO 通联信息、通联记录及电台详情，请访问我的 QRZ 个人主页。",
       link: "打开 QRZ 通联日志 / 个人主页 ↗"
     },
+       contactSection: {
+      eyebrow: "07 / 空中相会",
+      title: "打个<span>招呼</span>",
+      location: "中国上海",
+      greeting: "73 & 祝大家取得更多远距离通联",
+      emailButton: "发送邮件",
+      copyButton: "复制邮箱",
+      copied: "已复制！",
+      qslButton: "申请交换 QSL 卡片",
+      qslDescription: "确认我们的通联，并申请一张 QSL 卡片"
+    },
     },
     en: {
       home: "HOME",
