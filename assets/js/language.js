@@ -263,6 +263,14 @@ qslSection: {
       link: "VISITA LA MIA PAGINA QRZ ↗"
     }
   ]
+},
+logbookSection: {
+  eyebrow: "06 / CONTATTI RADIO",
+  title: "REGISTRO <span>LOG</span>",
+  subtitle: "OGNI CONTATTO CONNETTE IL MONDO",
+  cardTitle: "IL MIO LOG RADIO",
+  description: "Per informazioni sui QSO, i registri dei collegamenti e i dettagli della stazione, visita il mio profilo QRZ.",
+  link: "APRI IL LOG QRZ / PROFILO ↗"
 }
     }
   };
