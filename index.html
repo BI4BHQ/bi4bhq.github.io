@@ -133,15 +133,35 @@ footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  background:
-    radial-gradient(circle at center,rgba(130,15,28,.35),transparent 45%),
-    #050507;
+  background:#030304;
   opacity:0;
 }
 
 .biscione-easter-egg.active{
   display:flex;
-  animation:biscioneFadeIn .7s ease forwards;
+  animation:biscioneFadeIn .65s ease forwards;
+}
+
+/* 使用主页横幅中的原版蛇徽 */
+.biscione-egg-emblem{
+  position:absolute;
+  width:clamp(230px,38vh,390px);
+  height:min(78vh,700px);
+  right:3vw;
+  top:50%;
+  transform:translateY(-50%);
+  background-image:url('/assets/bi4bhq-banner.png');
+  background-repeat:no-repeat;
+  background-size:404% 123%;
+  background-position:92% 50%;
+  opacity:0;
+  filter:brightness(1.12) drop-shadow(0 0 24px rgba(201,35,50,.42));
+  -webkit-mask-image:radial-gradient(ellipse at center, #000 48%, transparent 78%);
+  mask-image:radial-gradient(ellipse at center, #000 48%, transparent 78%);
+}
+
+.biscione-easter-egg.active .biscione-egg-emblem{
+  animation:biscioneEmblem 2.2s ease-out .15s forwards;
 }
 
 .biscione-egg-content{
@@ -149,24 +169,38 @@ footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing
   z-index:2;
   text-align:center;
   padding:25px;
+  margin-right:clamp(100px,18vw,260px);
+  opacity:0;
 }
 
+.biscione-easter-egg.active .biscione-egg-content{
+  animation:biscioneText 1s ease-out 1.8s forwards;
+}
+
+/* 全屏电波：第1秒开始扩散 */
 .biscione-egg-signal{
   position:absolute;
-  width:220px;
-  height:220px;
-  border:1px solid rgba(201,35,50,.7);
+  left:50%;
+  top:50%;
+  width:160vmax;
+  height:160vmax;
+  border:1px solid rgba(201,35,50,.65);
   border-radius:50%;
-  box-shadow:0 0 35px rgba(201,35,50,.25);
-  animation:biscioneSignal 3s ease-out infinite;
+  box-shadow:0 0 45px rgba(201,35,50,.22),inset 0 0 35px rgba(201,35,50,.08);
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.015);
 }
 
-.biscione-egg-signal:nth-child(2){
-  animation-delay:1s;
+.biscione-easter-egg.active .biscione-egg-signal{
+  animation:biscioneSignal 3.8s ease-out 1s both;
 }
 
-.biscione-egg-signal:nth-child(3){
-  animation-delay:2s;
+.biscione-easter-egg.active .biscione-egg-signal:nth-child(3){
+  animation-delay:1.65s;
+}
+
+.biscione-easter-egg.active .biscione-egg-signal:nth-child(4){
+  animation-delay:2.3s;
 }
 
 .biscione-egg-title{
@@ -196,17 +230,78 @@ footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing
   to{opacity:1}
 }
 
+@keyframes biscioneEmblem{
+  0%{
+    opacity:0;
+    filter:brightness(.15) drop-shadow(0 0 0 rgba(201,35,50,0));
+    transform:translateY(-46%) scale(.96);
+  }
+  45%{
+    opacity:.72;
+    filter:brightness(.75) drop-shadow(0 0 18px rgba(201,35,50,.28));
+  }
+  100%{
+    opacity:1;
+    filter:brightness(1.12) drop-shadow(0 0 24px rgba(201,35,50,.42));
+    transform:translateY(-50%) scale(1);
+  }
+}
+
+@keyframes biscioneText{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
 @keyframes biscioneSignal{
-  0%{transform:scale(.35);opacity:.8}
-  100%{transform:scale(2.2);opacity:0}
+  0%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.015);
+  }
+  12%{opacity:.72}
+  100%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(1);
+  }
+}
+
+@media(max-width:650px){
+  .biscione-egg-emblem{
+    width:clamp(210px,52vw,300px);
+    height:66vh;
+    right:-3vw;
+    opacity:0;
+  }
+  .biscione-egg-content{
+    margin-right:0;
+    margin-top:42vh;
+    padding:18px;
+  }
+  .biscione-egg-title{
+    font-size:clamp(30px,8vw,46px);
+    letter-spacing:4px;
+  }
+  .biscione-egg-call{
+    font-size:15px;
+    letter-spacing:6px;
+  }
+  .biscione-egg-message{
+    font-size:10px;
+    letter-spacing:1px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
-  .biscione-easter-egg *,
-  .biscione-easter-egg{
+  .biscione-easter-egg,
+  .biscione-easter-egg .biscione-egg-emblem,
+  .biscione-easter-egg .biscione-egg-content{
     animation:none!important;
+    opacity:1!important;
+  }
+  .biscione-easter-egg .biscione-egg-signal{
+    display:none;
   }
 }
+
  @media(max-width:650px){
  .nav{align-items:flex-start;padding:18px 0;flex-direction:column}
  nav{gap:12px 18px;flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:8px}
