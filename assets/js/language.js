@@ -79,7 +79,7 @@ stationSection: {
           link: "访问我的 QRZ 主页 ↗"
         }
       ]
-    }
+    },
           logbookSection: {
       eyebrow: "06 / 无线电通联",
       title: "通联<span>日志</span>",
