@@ -33,9 +33,36 @@ stationSection: {
     "中国业余无线电台",
     "无线电收发设备",
     "电台天线",
-    "中国上海"
+        "中国上海"
   ]
-}
+},
+    photosSection: {
+      eyebrow: "03 / 时光与记忆",
+      title: "照片墙",
+      description: "记录瞬间、旅程与回忆。<br>来自 BI4BHQ 的个人影像收藏。",
+      categories: [
+        {
+          title: "无线电与空中世界",
+          subtitle: "业余无线电 · 通信 · 空中世界"
+        },
+        {
+          title: "旅途",
+          subtitle: "旅行 · 风景 · 远方"
+        },
+        {
+          title: "城市与生活",
+          subtitle: "城市灯光 · 日常生活 · 城市故事"
+        },
+        {
+          title: "时光片段",
+          subtitle: "时光片段 · 个人记忆"
+        }
+      ],
+      loading: "照片加载中...",
+      empty: "暂无照片",
+      unavailable: "照片暂不可用",
+      failed: "照片暂时无法加载"
+    }
     },
     en: {
       home: "HOME",
