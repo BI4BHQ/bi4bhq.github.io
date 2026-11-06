@@ -532,6 +532,7 @@ function loadPhotoCategory(category) {
 
     const item = document.createElement("div");
     item.className = "photo-item";
+    item.dataset.filename = filename;
 
     const img = document.createElement("img");
     img.src = src;
