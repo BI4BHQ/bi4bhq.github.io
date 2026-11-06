@@ -320,7 +320,7 @@ contactSection: {
     it: "IT"
   };
 
-  const savedLanguage = localStorage.getItem("bi4bhq-language") || "zh";
+  const savedLanguage = localStorage.getItem("bi4bhq-language") || "en";
   let currentLanguage = translations[savedLanguage]
     ? savedLanguage
     : "zh";
