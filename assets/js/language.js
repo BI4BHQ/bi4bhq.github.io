@@ -109,6 +109,8 @@ stationSection: {
       photos: "PHOTO GALLERY",
       biscione: "IL BISCIONE",
       biscioneTitle: "IL <span>BISCIONE</span>",
+      biscioneEyebrow: "04 / STORIES & REFLECTIONS",
+      biscioneSubtitle: "THE SERPENT OF SHANGHAI",
       qsl: "QSL GALLERY",
       logbook: "LOGBOOK",
       contact: "CONTACT",
