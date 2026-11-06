@@ -23,8 +23,7 @@ aboutSection: {
   title: "关于 <span>BI4BHQ</span>",
   subtitle: "来自中国上海的业余无线电爱好者",
   description: "欢迎来到我的个人业余无线电空间。我是 BI4BHQ，来自中国上海市静安区。<br><br>业余无线电不仅仅是一种通信方式。它更吸引我的，是将电磁波送入未知的世界，在不依赖互联网或移动通信网络的情况下，与远方的人建立联系。<br><br>不同的地方，不同的声音，却共享着同一个频率。空中见！"
-}
-    },
+},
 stationSection: {
   eyebrow: "02 / 电台设备",
   title: "我的 <span>电台设备</span>",
@@ -36,7 +35,7 @@ stationSection: {
     "电台天线",
     "中国上海"
   ]
-}
+},
     en: {
       home: "HOME",
       about: "ABOUT",
@@ -63,8 +62,7 @@ aboutSection: {
   title: "ABOUT <span>BI4BHQ</span>",
   subtitle: "A RADIO AMATEUR FROM SHANGHAI, CHINA",
   description: "Welcome to my personal amateur radio station. I am BI4BHQ, based in Jing'an District, Shanghai, China.<br><br>Amateur radio is more than communication. It is the fascination of sending electromagnetic waves into the unknown, reaching someone far away without relying on the internet or cellular networks.<br><br>Different places, different voices, one shared frequency. See you on the air!"
-}
-    },
+},
 stationSection: {
   eyebrow: "02 / RADIO EQUIPMENT",
   title: "MY <span>STATION</span>",
@@ -76,7 +74,7 @@ stationSection: {
     "Station Antenna",
     "Shanghai, China"
   ]
-}
+},
     it: {
       home: "HOME",
       about: "CHI SONO",
@@ -103,8 +101,7 @@ aboutSection: {
   title: "CHI SONO <span>BI4BHQ</span>",
   subtitle: "UN RADIOAMATORE DA SHANGHAI, CINA",
   description: "Benvenuti nella mia stazione radioamatoriale personale. Sono BI4BHQ e mi trovo nel distretto di Jing'an, a Shanghai, in Cina.<br><br>La radio amatoriale è molto più di un semplice mezzo di comunicazione. Il suo fascino sta nel trasmettere onde elettromagnetiche verso l'ignoto e raggiungere persone lontane, senza dipendere da Internet o dalle reti cellulari.<br><br>Luoghi diversi, voci diverse, ma un'unica frequenza condivisa. Ci sentiamo in radio!"
-}
-    },
+},
   stationSection: {
   eyebrow: "02 / APPARECCHIATURE RADIO",
   title: "LA MIA <span>STAZIONE</span>",
@@ -117,6 +114,7 @@ aboutSection: {
     "Shanghai, Cina"
   ]
 }
+    }
   };
 
   const languageNames = {
