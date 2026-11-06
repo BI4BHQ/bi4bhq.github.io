@@ -169,6 +169,33 @@ aboutSection: {
     "Antenna della stazione",
     "Shanghai, Cina"
   ]
+},
+photosSection: {
+  eyebrow: "03 / MOMENTI E RICORDI",
+  title: "GALLERIA FOTOGRAFICA",
+  description: "Momenti, viaggi e ricordi.<br>Una raccolta personale di BI4BHQ.",
+  categories: [
+    {
+      title: "RADIO E ONDE RADIO",
+      subtitle: "RADIOAMATORI · COMUNICAZIONE · ONDE RADIO"
+    },
+    {
+      title: "VIAGGI",
+      subtitle: "VIAGGI · PAESAGGI · LUOGHI LONTANI"
+    },
+    {
+      title: "CITTÀ E VITA",
+      subtitle: "LUCI DELLA CITTÀ · VITA QUOTIDIANA · STORIE URBANE"
+    },
+    {
+      title: "MOMENTI",
+      subtitle: "FRAMMENTI DI TEMPO · RICORDI PERSONALI"
+    }
+  ],
+  loading: "CARICAMENTO FOTO...",
+  empty: "NESSUNA FOTO",
+  unavailable: "FOTO NON DISPONIBILE",
+  failed: "FOTO TEMPORANEAMENTE NON DISPONIBILI"
 }
     }
   };
