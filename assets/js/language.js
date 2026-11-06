@@ -62,6 +62,23 @@ stationSection: {
       empty: "暂无照片",
       unavailable: "照片暂不可用",
       failed: "照片暂时无法加载"
+        },
+    qslSection: {
+      eyebrow: "05 / 确认每一次通联",
+      title: "QSL <span>卡片展示</span>",
+      subtitle: "每一次通联，都是一段回忆",
+      cards: [
+        {
+          number: "QSL 卡片收藏",
+          description: "我的 QSL 卡片与无线电通联回忆。",
+          link: "查看 QRZ 上的 QSL 卡片 ↗"
+        },
+        {
+          number: "业余无线电爱好者",
+          description: "向所有无线电爱好者致以问候，祝大家取得更多远距离通联。",
+          link: "访问我的 QRZ 主页 ↗"
+        }
+      ]
     }
     },
     en: {
