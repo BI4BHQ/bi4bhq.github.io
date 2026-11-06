@@ -190,6 +190,17 @@ logbookSection: {
   cardTitle: "MY RADIO LOG",
   description: "For QSO information, contact records and station details, please visit my QRZ profile.",
   link: "OPEN QRZ LOGBOOK / PROFILE ↗"
+},
+contactSection: {
+  eyebrow: "07 / SEE YOU ON THE AIR",
+  title: "SAY <span>HELLO</span>",
+  location: "Shanghai, China",
+  greeting: "73 & GOOD DX",
+  emailButton: "CONTACT VIA EMAIL",
+  copyButton: "COPY EMAIL",
+  copied: "COPIED!",
+  qslButton: "APPLY FOR QSL CARD EXCHANGE",
+  qslDescription: "CONFIRM OUR QSO AND REQUEST A QSL CARD"
 }
     },
     it: {
