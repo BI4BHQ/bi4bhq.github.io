@@ -577,6 +577,41 @@ if (logbookArea && logbookSection) {
   if (description) description.textContent = logbookSection.description;
   if (link) link.textContent = logbookSection.link;
 }
+    // 翻译 CONTACT 模块
+const contactSection = translations[language].contactSection;
+const contactArea = document.querySelector("#contact");
+
+if (contactArea && contactSection) {
+  const eyebrow = contactArea.querySelector(".eyebrow");
+  const title = contactArea.querySelector(".section-title");
+  const infoParagraphs = contactArea.querySelectorAll(".call ~ p");
+  const emailButton = contactArea.querySelector('a[href^="mailto:"]');
+  const copyButton = contactArea.querySelector('button[onclick*="clipboard"]');
+  const qslButton = contactArea.querySelector('a[href*="qeg.net/bi4bhq/request"]');
+  const qslDescription = qslButton ? qslButton.nextElementSibling : null;
+
+  if (eyebrow) eyebrow.textContent = contactSection.eyebrow;
+  if (title) title.innerHTML = contactSection.title;
+  if (infoParagraphs[0]) infoParagraphs[0].textContent = contactSection.location;
+  if (infoParagraphs[1]) infoParagraphs[1].textContent = contactSection.greeting;
+  if (emailButton) emailButton.textContent = contactSection.emailButton;
+  if (copyButton) {
+    copyButton.textContent = contactSection.copyButton;
+
+    copyButton.onclick = function () {
+      navigator.clipboard.writeText("5364075@qq.com").then(() => {
+        copyButton.textContent = translations[currentLanguage].contactSection.copied;
+
+        setTimeout(() => {
+          copyButton.textContent = translations[currentLanguage].contactSection.copyButton;
+        }, 2000);
+      });
+    };
+  }
+
+  if (qslButton) qslButton.textContent = contactSection.qslButton;
+  if (qslDescription) qslDescription.textContent = contactSection.qslDescription;
+}
     // 翻译 IL BISCIONE 板块标题
 const biscioneTitle = document.querySelector("#biscione .section-title");
 
