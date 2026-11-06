@@ -131,14 +131,12 @@ aboutSection: {
     : "zh";
 
   // 创建语言切换按钮
-  const switcher = document.createElement("div");
-  switcher.id = "bi4bhq-language-switcher";
+  const switcher = document.getElementById("bi4bhq-language-switcher");
 
-  switcher.innerHTML = `
-    <button data-lang="zh">中文</button>
-    <button data-lang="en">EN</button>
-    <button data-lang="it">IT</button>
-  `;
+if (!switcher) {
+  console.error("Language switcher not found");
+  return;
+}
 
     // 将语言切换按钮放到 BI4BHQ 标志后面
   const logo = document.querySelector("header .logo");
