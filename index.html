@@ -957,7 +957,35 @@ async function initArticles() {
     container.textContent = "文章暂时无法加载，请稍后再试。";
   }
 }
-initPhotoGallery();
+// IL BISCIONE EASTER EGG
+let biscioneEggTimer;
+
+document.querySelector('nav a[href="#biscione"]')
+  .addEventListener("click", event => {
+    event.preventDefault();
+
+    const egg = document.getElementById("biscioneEasterEgg");
+    const section = document.getElementById("biscione");
+
+    clearTimeout(biscioneEggTimer);
+
+    egg.classList.remove("active");
+    void egg.offsetWidth;
+
+    egg.setAttribute("aria-hidden", "false");
+    egg.classList.add("active");
+
+    biscioneEggTimer = setTimeout(() => {
+      egg.classList.remove("active");
+      egg.setAttribute("aria-hidden", "true");
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 3800);
+  });
+  initPhotoGallery();
 initArticles();
 </script>
 <script src="assets/js/language.js?v=10"></script> 
