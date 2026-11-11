@@ -408,6 +408,25 @@ footer{padding:30px 0;text-align:center;color:#777;font-size:11px;letter-spacing
   
 <div class="visitor-counter">
   <script src="https://gnrcounter.com/counter.php?accId=a83f97d6af122e2bca92d4173a7efdd3&type=text&bg=08090c&text=FFFFFF&stats=online,total&lang=en"></script>
+  <script>
+(function () {
+  const box = document.currentScript.parentElement;
+  const raw = box.innerText || "";
+  const match = raw.match(/Now\s*,?\s*(\d+)\s*online\s*users[\s\S]*?Total\s*visitors\s*[:：]?\s*(\d+)/i);
+
+  if (!match) return;
+
+  const now = document.createElement("span");
+  now.className = "counter-now";
+  now.textContent = "Now " + match[1];
+
+  const total = document.createElement("span");
+  total.className = "counter-total";
+  total.textContent = "Total " + match[2];
+
+  box.replaceChildren(now, total);
+})();
+</script>
   <noscript>
     <a href="https://gnrcounter.com">Free visitor counter</a>
   </noscript>
