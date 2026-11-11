@@ -26,15 +26,28 @@ header{position:sticky;top:0;z-index:10;background:rgba(8,9,12,.92);backdrop-fil
 }
 
 .visitor-counter{
-  color:#f4f2ee;
-  font-size:10px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  white-space:nowrap;
+  font-size:11px;
   line-height:1.5;
   letter-spacing:1px;
-  white-space:nowrap;
 }
 
-.visitor-counter a{
+.visitor-counter .counter-eye{
+  display:inline-flex;
+  align-items:center;
+  margin-right:3px;
   color:#f4f2ee;
+}
+
+.visitor-counter .counter-now{
+  color:#f4f2ee;
+}
+
+.visitor-counter .counter-total{
+  color:#c92332;
 }
 nav{display:flex;gap:22px;flex-wrap:wrap}nav a{font-size:13px;color:#c7c7ca}nav a:hover{color:#fff}
 .hero{min-height:600px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(5,6,9,.48),rgba(5,6,9,.22)),url("assets/bi4bhq-banner.png") center/cover no-repeat,radial-gradient(circle at 80% 35%,#48151c,#08090c 60%);border-bottom:1px solid var(--line)}
