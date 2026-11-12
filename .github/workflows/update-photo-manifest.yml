@@ -84,12 +84,87 @@ jobs:
           )
           PY
 
+      
+      - name: Generate multilingual photo titles with DeepL
+        env:
+          DEEPL_AUTH_KEY: ${{ secrets.DEEPL_AUTH_KEY }}
+        run: |
+          if [ -z "$DEEPL_AUTH_KEY" ]; then
+            echo "::error::DEEPL_AUTH_KEY secret is missing"
+            exit 1
+          fi
+
+          python3 -m pip install --quiet deepl
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+          import deepl
+
+          root = Path("assets/photos")
+          manifest = json.loads(
+              (root / "manifest.json").read_text(encoding="utf-8")
+          )
+          titles_path = root / "titles.json"
+
+          titles = {}
+          if titles_path.exists():
+              titles = json.loads(
+                  titles_path.read_text(encoding="utf-8")
+              )
+
+          translator = deepl.DeepLClient(os.environ["DEEPL_AUTH_KEY"])
+          changed = False
+
+          for category in manifest:
+              for filename in category.get("photos", []):
+                  stem = Path(filename).stem
+                  if stem.endswith("_converted"):
+                      stem = stem[:-10]
+
+                  if not re.search(r"[\u4e00-\u9fff]", stem):
+                      continue
+
+                  entry = titles.get(filename, {})
+                  if not isinstance(entry, dict):
+                      entry = {}
+
+                  zh = entry.get("zh") or stem
+                  en = entry.get("en")
+                  it = entry.get("it")
+
+                  if not en:
+                      en = translator.translate_text(
+                          zh, source_lang="ZH", target_lang="EN-US"
+                      ).text
+
+                  if not it:
+                      it = translator.translate_text(
+                          zh, source_lang="ZH", target_lang="IT"
+                      ).text
+
+                  titles[filename] = {
+                      "zh": zh,
+                      "en": en,
+                      "it": it
+                  }
+                  changed = True
+                  print(f"Translated: {filename}")
+
+          if changed or not titles_path.exists():
+              titles_path.write_text(
+                  json.dumps(titles, ensure_ascii=False, indent=2) + "\n",
+                  encoding="utf-8"
+              )
+          PY
+
       - name: Commit converted photos and manifest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/photos/
           git diff --cached --quiet || (
-            git commit -m "Convert HEIC photos and update photo manifest" &&
+            git commit -m "Convert photos and update multilingual manifest [skip ci]" &&
             git push
           )
