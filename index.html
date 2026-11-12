@@ -910,6 +910,22 @@ async function initPhotoGallery() {
   ];
 
   try {
+        try {
+      const titlesResponse = await fetch(
+        "assets/photos/titles.json?v=" + Date.now(),
+        { cache: "no-store" }
+      );
+
+      if (titlesResponse.ok) {
+        const loadedTitles = await titlesResponse.json();
+
+        if (loadedTitles && typeof loadedTitles === "object") {
+          autoPhotoTitles = loadedTitles;
+        }
+      }
+    } catch (titleError) {
+      console.warn("Automatic photo titles unavailable:", titleError);
+    }
     const response = await fetch(
       "assets/photos/manifest.json?v=" + Date.now(),
       { cache: "no-store" }
