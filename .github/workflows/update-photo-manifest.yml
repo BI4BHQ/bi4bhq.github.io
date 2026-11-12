@@ -1,3 +1,4 @@
+
 name: Update Photo Manifest
 
 on:
@@ -20,6 +21,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Convert HEIC and HEIF photos to JPG
+        run: |
+          python3 -m pip install --quiet pillow-heif
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          from pillow_heif import register_heif_opener
+
+          root = Path("assets/photos")
+          register_heif_opener()
+
+          for source in sorted(root.rglob("*")):
+              if not source.is_file() or source.suffix.lower() not in {".heic", ".heif"}:
+                  continue
+
+              output = source.with_name(source.stem + "_converted.jpg")
+
+              with Image.open(source) as image:
+                  image = ImageOps.exif_transpose(image)
+                  if image.mode != "RGB":
+                      image = image.convert("RGB")
+                  image.save(output, "JPEG", quality=92, optimize=True)
+
+              print(f"Converted: {source} -> {output}")
+          PY
+
       - name: Generate photo manifest
         run: |
           python3 - <<'PY'
@@ -34,7 +61,7 @@ jobs:
               {"folder": "04-moments", "target": "photo-moments"},
           ]
 
-          extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".jfif", ".HEIC"}
+          extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".jfif"}
 
           result = []
           for category in categories:
@@ -57,12 +84,12 @@ jobs:
           )
           PY
 
-      - name: Commit manifest
+      - name: Commit converted photos and manifest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/photos/manifest.json
+          git add assets/photos/
           git diff --cached --quiet || (
-            git commit -m "Update photo manifest" &&
+            git commit -m "Convert HEIC photos and update photo manifest" &&
             git push
           )
