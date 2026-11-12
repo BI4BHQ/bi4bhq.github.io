@@ -814,10 +814,12 @@ function photoTitle(filename) {
     }
   };
 
-  return titles[filename]?.[language] || filename
+return titles[filename]?.[language] ||
+  autoPhotoTitles[filename]?.[language] ||
+  filename
     .replace(/\.[^/.]+$/, "")
     .replace(/[-_]/g, " ")
-    .replace(/\b\w/g, letter => letter.toUpperCase());
+    .replace(/\b\w/g, letter => letter.toUpperCase());  
 }
 function loadPhotoCategory(category) {
   const container = document.getElementById(category.target);
